@@ -1,0 +1,91 @@
+/* ===== HERO BASE ===== */
+.hero {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6vw;
+}
+
+.hero-content {
+  max-width: 900px;
+  text-align: center;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.hero-content h1 {
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.hero-content h1 span {
+  font-weight: 800;
+}
+
+.hero-content p {
+  font-size: 1.05rem;
+  max-width: 720px;
+  margin: 0 auto 42px;
+  line-height: 1.7;
+  color: #333333;
+}
+
+/* ===== BUTTONS ===== */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.hero-buttons button {
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Primary */
+.btn-primary {
+  background: transparent;
+  color: #000000;
+  border: 1.5px solid #000000;
+}
+
+.btn-primary:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Secondary */
+.btn-secondary {
+  background: transparent;
+  color: #000000;
+  border: 1.5px solid #000000;
+}
+
+.btn-secondary:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .hero-buttons {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+}
