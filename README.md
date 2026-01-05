@@ -1,16 +1,147 @@
-# React + Vite
+# 🚀 React GSAP Animated Hero Section
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, minimal, and job-focused **React landing page** featuring a premium **Hero section** animated with **GSAP**.  
+Designed for resume builders, SaaS products, and portfolio-style websites with clean UI, smooth motion, and responsive layout.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- ⚛️ Built with **React (Vite / CRA compatible)**
+- 🎬 Smooth **GSAP animations** (timeline-based)
+- 🧼 Clean, minimal, premium UI
+- 📱 Fully responsive (mobile-friendly)
+- 🎯 Job-focused CTA design (Resume Builder style)
+- 🎨 Single global CSS file (`App.css`)
+- 🔥 React 18 safe GSAP integration (`gsap.context`)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React**
+- **GSAP (GreenSock Animation Platform)**
+- **CSS3**
+- **JavaScript (ES6+)**
+
+---
+
+## 📂 Project Structure
+
+```txt
+src/
+│
+├── Components/
+│   └── Hero.jsx
+│
+├── App.jsx
+├── App.css
+├── main.jsx
+└── index.html
+```
+▶️ Getting Started
+1️⃣ Clone the repository
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+```
+2️⃣ Install dependencies
+```bash
+npm install
+```
+3️⃣ Start the development server
+```bash
+npm run dev
+```
+Open your browser at:
+```
+http://localhost:5173
+```
+🎬 GSAP Animation Details
+Uses gsap.timeline() for smooth sequencing
+
+autoAlpha is used instead of opacity for reliable visibility
+```bash
+gsap.context() ensures compatibility with React 18 StrictMode
+
+Clean animation cleanup using ctx.revert()
+
+Example:
+useEffect(() => {
+  const ctx = gsap.context(() => {
+    // animations here
+  }, heroRef);
+
+  return () => ctx.revert();
+}, []);
+```
+🎨 Styling Approach
+Single global CSS file: App.css
+
+Flexbox-based layout
+
+Clamp-based typography for responsiveness
+
+Subtle hover and motion effects for premium feel
+
+📱 Responsive Design
+Desktop: Centered layout with horizontal CTA buttons
+
+Mobile (<600px): Buttons stack vertically
+
+Smooth animations work across all screen sizes
+
+📌 Customization
+You can easily:
+
+Change hero text and CTA labels
+
+Adjust animation timings in GSAP
+
+Replace colors for branding
+
+Add ScrollTrigger for scroll-based animations
+
+Extend into a full resume builder or SaaS landing page
+
+🚀 Future Enhancements
+ScrollTrigger animations
+
+Modal-based resume creation flow
+
+Template gallery section
+
+Authentication & dashboard
+
+PDF resume generation
+
+🤝 Contributing
+Contributions are welcome!
+
+Fork the repository
+
+Create a new branch
+
+Commit your changes
+
+Open a Pull Request
+
+📄 License
+This project is open-source and available under the MIT License.
+
+🙌 Acknowledgements
+GSAP
+
+React Community
+
+Modern SaaS UI inspirations
+
+⭐ If you like this project, give it a star!
+
+---
+
+If you want, I can also:
+- ✍️ rewrite this README for **resume-builder SaaS**
+- 🧑‍💻 make it **portfolio-ready**
+- 📦 add **badges**, **screenshots**, or **deployment section**
+
+Just tell me what vibe you want 😄
