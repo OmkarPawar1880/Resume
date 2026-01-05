@@ -89,3 +89,665 @@
     font-size: 0.95rem;
   }
 }
+/* ----- PERSONAL INFORMATION ----- */
+.header-form {
+  background: #ffffff;
+  color: #000000;
+  padding: 50px 6vw;
+  border-radius: 14px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.sub-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 40px 0 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+input {
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: #000000;
+  transition: border 0.3s ease;
+}
+
+input::placeholder {
+  color: #666666;
+}
+
+input:focus {
+  border-color: #000000;
+}
+/* ================= EDUCATION SECTION ================= */
+
+.education-section {
+  background: #ffffff;
+  color: #000000;
+  padding: 60px 6vw;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.education-section .section-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.education-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 28px;
+  background: #ffffff;
+}
+
+.education-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.education-card .drag-hint {
+  font-size: 0.9rem;
+  cursor: grab;
+  color: #555;
+}
+
+/* grid for education */
+.education-section .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* inputs */
+.education-section input,
+.education-section select {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  font-size: 0.95rem;
+  background: #ffffff;
+  color: #000000;
+}
+
+.education-section input:focus,
+.education-section select:focus {
+  border-color: #000000;
+  outline: none;
+}
+
+.grade-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* buttons */
+.education-section .remove-btn {
+  background: none;
+  border: none;
+  color: #d11a2a;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.education-section .remove-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.education-section .add-btn {
+  margin-top: 20px;
+  padding: 14px 22px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.education-section .add-btn:hover {
+  opacity: 0.9;
+}
+
+/* ================= EXPERIENCE SECTION ================= */
+
+.experience-section {
+  background: #ffffff;
+  color: #000000;
+  padding: 60px 6vw;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.experience-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.experience-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 30px;
+  background: #ffffff;
+}
+
+/* grid for experience */
+.experience-section .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* inputs + textarea */
+.experience-section input,
+.experience-section select,
+.experience-section textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #ffffff;
+  color: #000000;
+}
+
+.experience-section textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* actions row */
+.experience-section .actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* buttons */
+.experience-section .ai-btn {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.experience-section .remove-btn {
+  background: transparent;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.experience-section .add-btn {
+  background: #000000;
+  color: #ffffff;
+  
+  padding: 12px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+/* ================= PROJECTS SECTION ================= */
+/* ================= PROJECTS SECTION ================= */
+
+.projects-section {
+  background: #ffffff;
+  color: #000000;
+  padding: 60px 6vw;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.projects-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/* Card */
+.project-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 30px;
+  background: #ffffff;
+}
+
+.project-card.featured {
+  border: 2px solid #000000;
+}
+
+/* Header */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.project-header input {
+  flex: 1;
+}
+
+/* Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Inputs */
+.projects-section input,
+.projects-section textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #ffffff;
+  color: #000000;
+}
+
+.projects-section textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Tech tags */
+.tech-section {
+  margin-bottom: 16px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tech-tag {
+  border: 1px solid #000000;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* Featured toggle */
+.featured-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+/* Actions */
+.project-actions {
+  margin-top: 16px;
+}
+
+.remove-btn {
+  background: transparent;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* Add button */
+.add-btn {
+  background: #000000;
+  color: #ffffff;
+  padding: 12px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.skills-section {
+  background: #ffffff;
+  color: #000000;
+  padding: 60px 6vw;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.skill-category {
+  margin-bottom: 40px;
+}
+
+.category-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.skill-input-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.skill-input-row input,
+.skill-input-row select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  background: #fff;
+  color: #000;
+}
+
+.skill-input-row input {
+  flex: 1;
+}
+
+.skill-input-row button {
+  padding: 10px 18px;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.skill-input-row button:hover {
+  opacity: 0.85;
+}
+
+/* TAGS */
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.skill-tag .level {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+
+.level.basic {
+  opacity: 0.6;
+}
+
+.level.intermediate {
+  opacity: 0.8;
+}
+
+.level.advanced {
+  font-weight: 600;
+}
+
+.remove-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+/* ================= CERTIFICATION SECTION ================= */
+.certifications {
+  background: #ffffff;
+  color: #000000;
+  padding: 60px 6vw;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.cert-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.cert-grid input {
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  outline: none;
+}
+
+.cert-grid input:focus {
+  border-color: #000000;
+}
+
+.cert-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.verified {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.remove-btn {
+  background: transparent;
+  border: 1px solid #000000;
+  color: #000000;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.remove-btn:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.add-btn {
+  margin-top: 20px;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  opacity: 0.9;
+}
+
+/* ===============================
+   SAVE SECTION (BUTTON + STATUS)
+================================ */
+
+.save-section {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb; /* subtle divider */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+/* ===============================
+   SAVE BUTTON
+================================ */
+
+.save-btn {
+  background-color: #111827; /* near-black */
+  color: #ffffff;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease,
+              transform 0.1s ease,
+              opacity 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: #1f2937;
+}
+
+.save-btn:active {
+  transform: scale(0.98);
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===============================
+   STATUS MESSAGES
+================================ */
+
+.error-text {
+  color: #dc2626; /* red-600 */
+  font-size: 0.85rem;
+}
+
+.success-text {
+  color: #16a34a; /* green-600 */
+  font-size: 0.85rem;
+}
+
+/* SUBMIT BUTTON */
+/* src/styles/actions.css */
+
+.save-section,
+.submit-section {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.save-btn,
+.submit-btn {
+  background: #111;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save-btn:disabled,
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-text {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.success-text {
+  color: #2e7d32;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+/* PREVIEW PERSONAL */
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-btn {
+  border: 1px solid #000;
+  background: transparent;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.preview-body p {
+  margin: 6px 0;
+}
