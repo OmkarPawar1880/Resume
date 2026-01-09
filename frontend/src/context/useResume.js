@@ -37,16 +37,7 @@ export const useResume = () => {
   /* ===============================
      SKILLS HELPERS
   =============================== */
-  const addSkillToCategory = (catIndex, skill) => {
-    setResume((prev) => {
-      const updated = [...prev.skills];
-      updated[catIndex] = {
-        ...updated[catIndex],
-        skills: [...updated[catIndex].skills, skill],
-      };
-      return { ...prev, skills: updated };
-    });
-  };
+  
 
   const removeSkillFromCategory = (
     catIndex,
@@ -129,7 +120,7 @@ const savePartialResumeToBackend = async (partialData) => {
     addArrayItem,
     removeArrayItem,
     updateArrayField,
-    addSkillToCategory,
+    
     removeSkillFromCategory,
     context,
     saveResumeToBackend,

@@ -14,6 +14,7 @@ const createEmptyEducation = () => ({
 });
 
 const EducationInfo = () => {
+
   
   const [errors, setErrors] = useState([]);
   const { resume, replaceSection , savePartialResumeToBackend} = useResume();

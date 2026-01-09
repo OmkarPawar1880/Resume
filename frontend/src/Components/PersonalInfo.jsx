@@ -92,12 +92,29 @@ if (!isEditing) {
   const validateForm = () => {
   const newErrors = {};
 
-  
+  if (!draft.fullName?.trim()) {
+    newErrors.fullName = "Full name is required";
+  }
+
+  if (!draft.contact?.email?.trim()) {
+    newErrors.email = "Email is required";
+  }
+
+  if (!draft.location?.city?.trim()) {
+    newErrors.city = "City is required";
+  }
+
+  if (!draft.location?.state?.trim()) {
+    newErrors.state = "State is required";
+  }
+
+  if (!draft.location?.pincode?.trim()) {
+    newErrors.pincode = "Pincode is required";
+  }
 
   setErrors(newErrors);
   return Object.keys(newErrors).length === 0;
 };
-
 
   /* =========================
      SAVE HANDLER
@@ -110,16 +127,7 @@ if (!isEditing) {
 
 
     // 🔍 Simple validation example
-    if (!draft.fullName.trim()) {
-      setError("Full name is required");
-      return;
-    }
-
-    if (!draft.contact.email.trim()) {
-      setError("Email is required");
-      return;
-    }
-
+   
     try {
       setLoading(true);
 
@@ -127,10 +135,11 @@ if (!isEditing) {
       await new Promise((res) => setTimeout(res, 800));
 
       // ✅ Commit to global resume
-      replaceSection("personal", draft);
       await savePartialResumeToBackend({
-      personal: draft,
-      });
+  personal: draft,
+});
+
+replaceSection("personal", draft);
 
       setSuccess("Personal details saved successfully ✅");
       setIsEditing(false);
