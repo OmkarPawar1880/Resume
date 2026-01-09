@@ -16,7 +16,7 @@ const createEmptyEducation = () => ({
 const EducationInfo = () => {
   
   const [errors, setErrors] = useState([]);
-  const { resume, replaceSection , savePartialResumeToBackend} = useResume();
+  const { resume, replaceSection } = useResume();
   const [isEditing, setIsEditing] = useState(true);
 
 
@@ -167,10 +167,6 @@ const validateEducation = () => {
 
       // ✅ Commit once
       replaceSection("education", draft);
-      await savePartialResumeToBackend({
-    education: draft,
-    });
-
 
       setSuccess("Education saved successfully ✅");
       setIsEditing(false);
@@ -231,9 +227,9 @@ const validateEducation = () => {
             });
              }}
             />
-            {errors[index]?.degree && (
+            {errors[index]?.institution && (
         <p className="error-text">
-        {errors[index].degree}
+        {errors[index].institution}
         </p>
         )}
 
@@ -249,9 +245,9 @@ const validateEducation = () => {
               });
              }}
             />
-            {errors[index]?.specialization && (
+            {errors[index]?.institution && (
             <p className="error-text">
-            {errors[index].specialization}
+            {errors[index].institution}
             </p>
              )}
 
@@ -266,9 +262,6 @@ const validateEducation = () => {
               });
              }}
             >
-            {errors[index]?.gradeType && (
-  <p className="error-text">{errors[index].gradeType}</p>
-)}
               <option value="CGPA">CGPA</option>
               <option value="%">Percentage</option>
             </select>
@@ -280,87 +273,62 @@ const validateEducation = () => {
                   : "%"
               }
               value={edu.gradeValue}
-             onChange={(e) => {
-    updateField(index, "gradeValue", e.target.value);
-    setErrors((prev) => {
-      const copy = [...prev];
-      copy[index] = { ...copy[index], institution: "" };
-      return copy;
-    });
-  }}
+              onChange={(e) =>
+                updateField(
+                  index,
+                  "gradeValue",
+                  e.target.value
+                )
+              }
             />
-
-            {errors[index]?.gradeValue && (
-  <p className="error-text">{errors[index].gradeValue}</p>
-)}
 
             <input
               placeholder="Start Year"
               value={edu.startYear}
-              onChange={(e) => {
-    + updateField(index, "startYear", e.target.value);
-    setErrors((prev) => {
-      const copy = [...prev];
-      copy[index] = { ...copy[index], institution: "" };
-      return copy;
-    });
-  }}
-        />
-
-{errors[index]?.startYear && (
-  <p className="error-text">{errors[index].startYear}</p>
-)}
+              onChange={(e) =>
+                updateField(
+                  index,
+                  "startYear",
+                  e.target.value
+                )
+              }
+            />
 
             <input
               placeholder="End Year"
               value={edu.endYear}
-              onChange={(e) => {
-              + updateField(index, "endYear", e.target.value);
-              setErrors((prev) => {
-              const copy = [...prev];
-               copy[index] = { ...copy[index], institution: "" };
-              return copy;
-            });
-           }}
+              onChange={(e) =>
+                updateField(
+                  index,
+                  "endYear",
+                  e.target.value
+                )
+              }
             />
-
-            {errors[index]?.endYear && (
-  <p className="error-text">{errors[index].endYear}</p>
-)}
-
 
             <input
               placeholder="City"
               value={edu.city}
-              onChange={(e) => {
-              + updateField(index, "city", e.target.value);
-              setErrors((prev) => {
-              const copy = [...prev];
-               copy[index] = { ...copy[index], institution: "" };
-              return copy;
-            });
-           }}
+              onChange={(e) =>
+                updateField(
+                  index,
+                  "city",
+                  e.target.value
+                )
+              }
             />
-
-{errors[index]?.city && (
-  <p className="error-text">{errors[index].city}</p>
-)}
 
             <input
               placeholder="State"
               value={edu.state}
-              onChange={(e) => {
-              + updateField(index, "state", e.target.value);
-              setErrors((prev) => {
-              const copy = [...prev];
-               copy[index] = { ...copy[index], institution: "" };
-              return copy;
-            });
-           }}
+              onChange={(e) =>
+                updateField(
+                  index,
+                  "state",
+                  e.target.value
+                )
+              }
             />
-            {errors[index]?.state && (
-  <p className="error-text">{errors[index].state}</p>
-)}
           </div>
         </div>
       ))}

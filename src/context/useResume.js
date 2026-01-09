@@ -87,41 +87,6 @@ const removeArrayItem = (section, index) => {
   }));
 };
 
-const saveResumeToBackend = async () => {
-  const res = await fetch("http://localhost:8000/resume", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(resume),
-  });
-
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.detail || "Failed to save resume");
-  }
-
-  return res.json();
-};
-
-const savePartialResumeToBackend = async (partialData) => {
-  const res = await fetch("http://localhost:8000/resume/partial", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(partialData),
-  });
-
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.detail || "Failed to save section");
-  }
-
-  return res.json();
-};
-
-
   return {
     resume,
     setResume,
@@ -131,9 +96,6 @@ const savePartialResumeToBackend = async (partialData) => {
     updateArrayField,
     addSkillToCategory,
     removeSkillFromCategory,
-    context,
-    saveResumeToBackend,
-    savePartialResumeToBackend,
-
+    context
   };
 };
