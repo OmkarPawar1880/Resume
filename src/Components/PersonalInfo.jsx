@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useResume , } from "../context/useResume";
-
+import { useResume } from "../context/useResume";
+import { isEmail } from "../utils/validators";
 
 
 const PersonalInfoForm = () => {
-  const { resume, replaceSection , savePartialResumeToBackend } = useResume();
+  const { resume, replaceSection } = useResume();
   const [errors, setErrors] = useState({});
 
 
@@ -92,7 +92,15 @@ if (!isEditing) {
   const validateForm = () => {
   const newErrors = {};
 
-  
+  if (!draft.fullName.trim()) {
+    newErrors.fullName = "Full name is required";
+  }
+
+  if (!draft.contact.email.trim()) {
+    newErrors.email = "Email is required";
+  } else if (!isEmail(draft.contact.email)) {
+    newErrors.email = "Invalid email format";
+  }
 
   setErrors(newErrors);
   return Object.keys(newErrors).length === 0;
@@ -128,10 +136,6 @@ if (!isEditing) {
 
       // ✅ Commit to global resume
       replaceSection("personal", draft);
-      await savePartialResumeToBackend({
-      personal: draft,
-      });
-
       setSuccess("Personal details saved successfully ✅");
       setIsEditing(false);
 
@@ -176,7 +180,7 @@ if (!isEditing) {
             value={draft.location.city}
             onChange={(e) => {
             updateNestedField("location", "city", e.target.value);
-             
+             setErrors((prev) => ({ ...prev, city: "" }));
             }}
             placeholder="City"
           />
@@ -248,8 +252,8 @@ if (!isEditing) {
          }}
             placeholder="Email"
           />
-          {errors.email && (
-          <p className="error-text">{errors.email}</p>
+          {errors.phone && (
+          <p className="error-text">{errors.phone}</p>
           )}
         </div>
 
@@ -279,8 +283,8 @@ if (!isEditing) {
             setErrors((prev) => ({ ...prev, github: "" }));
            }}
           />
-          {errors.github && (
-          <p className="error-text">{errors.github}</p>
+          {errors.linkedin && (
+          <p className="error-text">{errors.linkedin}</p>
           )}
         </div>
 
