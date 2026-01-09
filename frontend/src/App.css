@@ -751,3 +751,204 @@ input:focus {
 .preview-body p {
   margin: 6px 0;
 }
+/* ---- GAP BETWEEN BOTH BUTTONS ----- */
+/* Add this to your CSS file (e.g., src/styles/buttons.css) */
+
+.submit-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px; /* space between Save Resume and Submit Resume buttons */
+}
+/* -------- src/styles/preview.css ------- */
+.a4-preview {
+  width: 210mm;
+  height: 297mm;
+  background: white;
+  padding: 20mm;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  font-family: "Arial", sans-serif;
+  overflow: hidden;
+}
+
+.preview-header {
+  text-align: center;
+  border-bottom: 2px solid #000;
+  margin-bottom: 12px;
+}
+
+.a4-preview h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.a4-preview h2 {
+  font-size: 14px;
+  margin-top: 16px;
+  border-bottom: 1px solid #000;
+}
+/* -------- src/styles/builder.css ------- */
+.builder-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.form-panel {
+  flex: 1;
+}
+
+.preview-panel {
+  width: 230mm; /* A4 width + padding */
+  position: sticky;
+  top: 20px;
+}
+/* -------- src/Components/ResumePreview.css ------- */
+.resume-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.resume-name {
+  font-size: 18pt;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.resume-line {
+  font-size: 10.5pt;
+  line-height: 1.4;
+}
+
+.resume-page {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  padding: 20mm;
+  font-family: "Times New Roman", serif;
+  font-size: 11pt;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.resume-header h1 {
+  font-size: 20pt;
+  margin-bottom: 4px;
+}
+
+.contact-line,
+.links-line {
+  font-size: 10pt;
+}
+
+section {
+  margin-bottom: 14px;
+}
+
+h2 {
+  font-size: 12pt;
+  border-bottom: 1px solid #000;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.right {
+  text-align: right;
+  font-size: 10pt;
+}
+
+.block {
+  margin-bottom: 8px;
+}
+
+ul {
+  padding-left: 18px;
+  margin-top: 4px;
+}
+
+li {
+  margin-bottom: 3px;
+}
+/* -------- src/styles/resume.css ------- */
+.resume-page {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  padding: 20mm;
+  font-family: "Times New Roman", serif;
+  font-size: 11pt;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* HEADER */
+.resume-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.resume-name {
+  font-size: 18pt;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.resume-header h1 {
+  font-size: 20pt;
+  margin-bottom: 4px;
+}
+
+.resume-line,
+.contact-line,
+.links-line {
+  font-size: 10.5pt;
+  line-height: 1.4;
+}
+
+/* SECTIONS */
+section {
+  margin-bottom: 14px;
+}
+
+h2 {
+  font-size: 12pt;
+  border-bottom: 1px solid #000;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+/* LAYOUT */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.right {
+  text-align: right;
+  font-size: 10pt;
+}
+
+.block {
+  margin-bottom: 8px;
+}
+
+/* LISTS */
+ul {
+  padding-left: 18px;
+  margin-top: 4px;
+}
+
+li {
+  margin-bottom: 3px;
+}
