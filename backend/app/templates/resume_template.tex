@@ -1,0 +1,125 @@
+%-------------------------
+% JSON Driven Resume Template (Compact, No Overlap)
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+% ---------------- Packages ----------------
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+
+% ---------------- Margins ----------------
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.25in}
+\addtolength{\topmargin}{-0.85in}
+\addtolength{\textheight}{1.45in}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0pt}
+\urlstyle{same}
+
+% ---------------- Section Style (SAFE spacing) ----------------
+\titleformat{\section}
+  {\scshape\raggedright\large\bfseries}
+  {}{0em}{}[\titlerule]
+
+\titlespacing*{\section}{0pt}{8pt}{6pt}
+
+% ATS friendly
+\pdfgentounicode=1
+
+% ---------------- List Spacing (SAFE & compact) ----------------
+\setlist[itemize]{
+  leftmargin=0.15in,
+  itemsep=2pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+
+% ---------------- Custom Commands ----------------
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{#2} \\
+    \textit{#3} & \textit{#4}
+  \end{tabular*}
+}
+
+
+
+% ---------------- Document ----------------
+\begin{document}
+
+% ================= HEADER =================
+\begin{center}
+  {\Huge \scshape {{{name}}}} \\[2pt]
+  {{{location}}} \\[6pt]
+
+  \small
+  \href{tel:{{{phone}}}}{\faPhone\ {{{phone}}}}
+  \quad
+  \href{mailto:{{{email}}}}{\faEnvelope\ {{{email}}}}
+  \quad
+  \href{ {{{linkedin}}} }{\faLinkedin\ LinkedIn}
+  \quad
+  \href{ {{{github}}} }{\faGithub\ GitHub}
+  \quad
+  \href{ {{{portfolio}}} }{\faGlobe\ Portfolio}
+\end{center}
+
+
+% ================= EDUCATION =================
+\section{Education}
+\resumeSubHeadingListStart
+{{{education_section}}}
+\resumeSubHeadingListEnd
+
+% ================= EXPERIENCE =================
+\section{Experience}
+\resumeSubHeadingListStart
+{{{experience_section}}}
+\resumeSubHeadingListEnd
+
+
+% ================= PROJECTS =================
+\section{Projects}
+\resumeSubHeadingListStart
+{{{projects_section}}}
+\resumeSubHeadingListEnd
+
+
+% ================= SKILLS =================
+\section{Technical Skills}
+\resumeSubHeadingListStart
+{{{skills_section}}}
+\resumeSubHeadingListEnd
+
+% ================= CERTIFICATIONS =================
+\section{Certifications}
+\resumeSubHeadingListStart
+{{{certifications_section}}}
+\resumeSubHeadingListEnd
+
+\end{document}

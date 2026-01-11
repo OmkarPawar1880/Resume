@@ -1,42 +1,63 @@
-// src/components/SubmitResumeButton.jsx
-
 import { useState } from "react";
+import { generateResume } from "../services/resumeApi";
 import { useResume } from "../context/useResume";
 import { validateResume } from "../utils/validateResume";
-import { submitResume } from "../services/resumeApi";
 
-const SubmitResumeButton = () => {
-  const { resume } = useResume();
+const ResumeActions = ({ resumeData }) => {
+  const { resume, saveResumeToBackend } = useResume();
 
-  const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState({});
   const [success, setSuccess] = useState("");
 
-  const handleSubmit = async () => {
-    setErrors({});
+  /* =========================
+     DOWNLOAD RESUME (PDF)
+  ========================== */
+  const handleDownload = async () => {
+    setError({});
     setSuccess("");
 
-    /* 1️⃣ Validate */
-    const validationErrors =
-      validateResume(resume);
+    try {
+      setLoading(true);
+      const res = await generateResume(resumeData || resume);
 
+      if (!res || !res.downloadUrl) {
+        throw new Error("Invalid response from server");
+      }
+
+      window.open(`http://localhost:8000${res.downloadUrl}`, "_blank");
+    } catch (err) {
+      console.error(err.message);
+      setError({ api: "Failed to generate resume. Please try again." });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /* =========================
+     SAVE RESUME (DRAFT)
+  ========================== */
+  
+  /* =========================
+     SUBMIT RESUME (FINAL)
+  ========================== */
+  const handleSubmitResume = async () => {
+    setError({});
+    setSuccess("");
+
+    const validationErrors = validateResume(resume);
     if (Object.keys(validationErrors).length) {
-      setErrors(validationErrors);
+      setError(validationErrors);
       return;
     }
 
-    /* 2️⃣ Submit */
     try {
       setLoading(true);
-      await submitResume(resume);
-      setSuccess(
-        "Resume submitted successfully 🎉"
-      );
+      await saveResumeToBackend();
+      setSuccess("Resume submitted successfully 🎉");
     } catch (err) {
-      setErrors({
-        api:
-          err.message ||
-          "Something went wrong",
+      setError({
+        api: err.message || "Failed to submit resume",
       });
     } finally {
       setLoading(false);
@@ -45,34 +66,39 @@ const SubmitResumeButton = () => {
 
   return (
     <div className="submit-section">
-      {errors.api && (
-        <p className="error-text">{errors.api}</p>
-      )}
+      {/* API / validation errors */}
+      {error.api && <p className="error-text">{error.api}</p>}
 
-      {success && (
-        <p className="success-text">{success}</p>
-      )}
+      {/* Success message */}
+      {success && <p className="success-text">{success}</p>}
 
-      <button
-        className="submit-btn"
-        onClick={handleSubmit}
-        disabled={loading}
-      >
-        {loading
-          ? "Submitting..."
-          : "Submit Resume"}
-      </button>
+      <div className="submit-actions">
+        
+        <button
+          className="submit-btn"
+          onClick={handleSubmitResume}
+          disabled={loading}
+        >
+          {loading ? "Submitting..." : "Submit Resume"}
+        </button>
 
-      {/* Optional error preview */}
-      {Object.values(errors).map(
-        (msg, i) => (
-          <p key={i} className="error-text">
-            {msg}
-          </p>
-        )
-      )}
+        <button
+          className="download-btn"
+          onClick={handleDownload}
+          disabled={loading}
+        >
+          {loading ? "Generating..." : "Download Resume"}
+        </button>
+      </div>
+
+      {/* Field-level errors */}
+      {Object.values(error).map((msg, i) => (
+        <p key={i} className="error-text">
+          {msg}
+        </p>
+      ))}
     </div>
   );
 };
 
-export default SubmitResumeButton;
+export default ResumeActions;
