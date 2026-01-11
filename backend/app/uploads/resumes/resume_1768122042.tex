@@ -1,0 +1,171 @@
+%-------------------------
+% JSON Driven Resume Template (Compact, No Overlap)
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+% ---------------- Packages ----------------
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+
+% ---------------- Margins ----------------
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.25in}
+\addtolength{\topmargin}{-0.85in}
+\addtolength{\textheight}{1.45in}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0pt}
+\urlstyle{same}
+
+% ---------------- Section Style (SAFE spacing) ----------------
+\titleformat{\section}
+  {\scshape\raggedright\large\bfseries}
+  {}{0em}{}[\titlerule]
+
+\titlespacing*{\section}{0pt}{8pt}{6pt}
+
+% ATS friendly
+\pdfgentounicode=1
+
+% ---------------- List Spacing (SAFE & compact) ----------------
+\setlist[itemize]{
+  leftmargin=0.15in,
+  itemsep=2pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+
+% ---------------- Custom Commands ----------------
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{#2} \\
+    \textit{#3} & \textit{#4}
+  \end{tabular*}
+}
+
+
+
+% ---------------- Document ----------------
+\begin{document}
+
+% ================= HEADER =================
+\begin{center}
+  {\Huge \scshape Omkar Pawar} \\[2pt]
+  Karad, Maharashtra \\[6pt]
+
+  \small
+  \href{tel:+919172952310}{\faPhone\ +919172952310}
+  \quad
+  \href{mailto:omkarpawar1880@gmail.com}{\faEnvelope\ omkarpawar1880@gmail.com}
+  \quad
+  \href{ https://www.linkedin.com/in/omkar-pawar-b4a501287 }{\faLinkedinSquare\ LinkedIn}
+  \quad
+  \href{ https://github.com/OmkarPawar1880 }{\faGithub\ GitHub}
+  \quad
+  \href{ https://omkarpawarportfolio.netlify.app }{\faGlobe\ Portfolio}
+\end{center}
+
+
+% ================= EDUCATION =================
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading{Bharati Vidyapeeth University}{2022 - 2025}{BCA - Bachelor in Computer Application - CGPA - 8.5}{Karad, Maharashtra}
+\resumeSubheading{Shivaji University}{2019 - 2020}{SSC - 10th Maharashtra Board - PERCENTAGE - 82.20\%}{Karad, Maharashtra}
+
+\resumeSubHeadingListEnd
+
+% ================= EXPERIENCE =================
+\section{Experience}
+\resumeSubHeadingListStart
+\resumeSubheading{CodeClause}{December 2024 - January 2025}{Web Developer Intern (Remote)}{Pune}
+\resumeItemListStart
+\resumeItem{Assisted in designing, developing, and maintaining responsive websites using HTML, CSS, JavaScript, and modern frameworks}
+\resumeItem{Collaborated with senior developers to enhance user experience}
+\resumeItem{Participated in team meetings, code reviews, and project planning sessions}
+\resumeItemListEnd
+\resumeSubheading{OctaNet Services Pvt Ltd.}{October 2024 - November 2024}{Web Developer (Remote)}{Karad}
+\resumeItemListStart
+\resumeItem{Developed and tested web applications ensuring cross-browser compatibility and responsiveness}
+\resumeItem{Worked on various projects using multiple coding methodologies}
+\resumeItem{Worked with backend technologies such as React.js, PHP, and databases like MySQL}
+\resumeItem{Handled database operations and created responsive front-end using HTML, CSS, and JavaScript}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+% ================= PROJECTS =================
+\section{Projects}
+\resumeSubHeadingListStart
+\resumeProjectHeading{\textbf{Cafe-Shop Management System} $|$ \emph{JavaScript, PHP, MySQL}}{March 2025}
+\resumeItemListStart
+\resumeItem{Developed a user-friendly interface for managing menu items, orders, and customer details efficiently}
+\resumeItem{Optimized database queries for faster data retrieval and improved system performance}
+\resumeItem{Integrated real-time order tracking and automated billing system}
+\resumeItem{Ensured mobile responsiveness and cross-browser compatibility}
+\resumeItemListEnd
+\resumeProjectHeading{\textbf{E-Learning Platform} $|$ \emph{PHP, React JS, JavaScript}}{January 2025}
+\resumeItemListStart
+\resumeItem{Developed a responsive e-learning platform using HTML, CSS, JavaScript, and React.js}
+\resumeItem{Created a dynamic dashboard for students and instructors}
+\resumeItem{Optimized website performance for faster load times}
+\resumeItem{Integrated user authentication, course management, and progress tracking using Node.js and MySQL}
+\resumeItemListEnd
+\resumeProjectHeading{\textbf{PayPal Website Clone} $|$ \emph{HTML5, CSS3, JavaScript, VS Code}}{November 2024}
+\resumeItemListStart
+\resumeItem{Developed a static PayPal website clone for UI/UX consistency}
+\resumeItem{Designed responsive layouts for mobile-friendly experience}
+\resumeItem{Structured clean and maintainable code following best practices}
+\resumeItem{Used Git/GitHub for version control and collaboration}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+% ================= SKILLS =================
+\section{Technical Skills}
+\resumeSubHeadingListStart
+\small{\item{
+\textbf{Languages}: Java, JavaScript, SQL \\
+\textbf{Technologies / Frameworks}: HTML5, CSS3, React, Bootstrap \\
+\textbf{Developer Tools}: VS Code, Eclipse IDE, IntelliJ, Canva \\
+}}
+
+\resumeSubHeadingListEnd
+
+% ================= CERTIFICATIONS =================
+\section{Certifications}
+\resumeSubHeadingListStart
+\small{\item{
+\textbf{•} Full Stack Development - Simplilearn / SkillUP \\
+\textbf{•} React JS - Infosys \\
+\textbf{•} Responsive Web Development - Infosys \\
+}}
+
+\resumeSubHeadingListEnd
+
+\end{document}
