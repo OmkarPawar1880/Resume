@@ -6,6 +6,8 @@ import {
   FaGithub,
   FaGlobe,
 } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
+
 
 const ResumePreview = () => {
   const { resume } = useResume();
@@ -94,54 +96,93 @@ const ResumePreview = () => {
 
       {/* EXPERIENCE */}
       {experience.length > 0 && (
-        <section>
-          <h2>Experience</h2>
-          {experience.map((exp, i) => (
-            <div key={i} className="block">
-              <div className="row">
-                <strong>{exp.company}</strong>
-                <span className="right">
-                  {exp.startDate} – {exp.endDate}
-                </span>
-              </div>
-              <em>
-                {exp.role} ({exp.type})
-              </em>
-              <ul>
-                {exp.responsibilities
-                  ?.split("\n")
-                  .filter(Boolean)
-                  .map((r, idx) => (
-                    <li key={idx}>{r.replace("•", "").trim()}</li>
-                  ))}
-              </ul>
-            </div>
-          ))}
-        </section>
-      )}
+  <section>
+    <h2>Experience</h2>
+
+    {experience.map((exp, i) => (
+      <div key={i} className="block">
+        <div className="row">
+          <strong>{exp.company}</strong>
+
+          <span className="right">
+            {exp.startDate} – {exp.endDate}
+
+            {/* ✅ Offer Letter Link */}
+            {exp.offerLetterUrl && (
+              <a
+                href={exp.offerLetterUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="external-link"
+                title="View Offer Letter"
+              >
+                <FaExternalLinkAlt />
+              </a>
+            )}
+          </span>
+        </div>
+
+        <em>
+          {exp.role} ({exp.type})
+        </em>
+
+        <ul>
+          {exp.responsibilities
+            ?.split("\n")
+            .filter(Boolean)
+            .map((r, idx) => (
+              <li key={idx}>
+                {r.replace("•", "").trim()}
+              </li>
+            ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+)}
 
       {/* PROJECTS */}
       {projects.length > 0 && (
-        <section>
-          <h2>Projects</h2>
-          {projects.map((p, i) => (
-            <div key={i} className="block">
-              <div className="row">
-                <strong>{p.title}</strong>
-                <span className="right">{p.projectDate}</span>
-              </div>
-              <ul>
-                {p.description
-                  ?.split("\n")
-                  .filter(Boolean)
-                  .map((d, idx) => (
-                    <li key={idx}>{d.replace("•", "").trim()}</li>
-                  ))}
-              </ul>
-            </div>
-          ))}
-        </section>
-      )}
+  <section>
+    <h2>Projects</h2>
+
+    {projects.map((p, i) => (
+      <div key={i} className="block">
+        <div className="row">
+          <strong>{p.title}</strong>
+
+          <span className="right">
+            {p.projectDate}
+
+            {/* ✅ GitHub External Link */}
+            {p.github && (
+              <a
+                href={p.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View GitHub Repository"
+                className="external-link"
+              >
+                <FaExternalLinkAlt />
+              </a>
+            )}
+          </span>
+        </div>
+
+        <ul>
+          {p.description
+            ?.split("\n")
+            .filter(Boolean)
+            .map((d, idx) => (
+              <li key={idx}>
+                {d.replace("•", "").trim()}
+              </li>
+            ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+)}
 
       {/* SKILLS */}
       {skills.length > 0 && (

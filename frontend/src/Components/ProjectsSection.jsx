@@ -7,7 +7,6 @@ const createEmptyProject = () => ({
   projectDate: "",
   description: "",
   github: "",
-  live: "",
   featured: false,
 });
 
@@ -83,12 +82,7 @@ if (!isEditing) {
             </p>
           )}
 
-          {proj.live && (
-            <p>
-              <strong>Live:</strong>{" "}
-              {proj.live}
-            </p>
-          )}
+          
         </div>
       ))}
 
@@ -219,6 +213,20 @@ if (!isEditing) {
               updateField(index, "github", e.target.value)
             }
           />
+<input
+  placeholder="Technologies (e.g. React, Node, MySQL)"
+  value={proj.technologies.join(", ")}
+  onChange={(e) =>
+    updateField(
+      index,
+      "technologies",
+      e.target.value
+        .split(",")
+        .map((t) => t.trim())
+        .filter(Boolean)
+    )
+  }
+/>
 
           <textarea
             rows="4"
