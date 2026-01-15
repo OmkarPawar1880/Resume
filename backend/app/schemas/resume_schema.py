@@ -156,7 +156,7 @@ class Project(BaseModel):
     projectDate: str
     description: str
     github: Optional[str]
-    live: Optional[str]
+    
     featured: bool
 
     @validator("projectDate")
@@ -167,11 +167,7 @@ class Project(BaseModel):
     def check_description(cls, value):
         return validate_description(value)
 
-    @validator("github", "live")
-    def check_urls(cls, value):
-        if value:
-            return validate_url(value)
-        return value
+    
 
     @validator("technologies")
     def check_technologies(cls, value):

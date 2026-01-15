@@ -35,6 +35,7 @@ experience: [
     startDate: "",
     endDate: "",
     responsibilities: "",
+    offerLetterUrl: "",
   },
 ],
 projects: [
@@ -44,7 +45,7 @@ projects: [
     projectDate: "",
     description: "",
     github: "",
-    live: "",
+    
     featured: false,
   },
 ],

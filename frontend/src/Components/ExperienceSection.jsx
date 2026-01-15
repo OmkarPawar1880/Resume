@@ -65,6 +65,7 @@ if (!isEditing) {
           <p>
             {exp.startDate} – {exp.endDate || "Present"}
           </p>
+          <p>{exp.offerLetterUrl}</p>
 
           {exp.responsibilities && (
             <ul>
@@ -245,6 +246,26 @@ if (!isEditing) {
 
             {errors[index]?.role && (
   <p className="error-text">{errors[index].role}</p>
+
+)}
+
+<input
+  type="url"
+  placeholder="Offer Letter URL (optional)"
+  value={exp.offerLetterUrl}
+  onChange={(e) =>{
+    updateField(index, "offerLetterUrl", e.target.value)
+    setErrors((prev) => {
+      const copy = [...prev];
+      copy[index] = { ...copy[index], url: "" };
+      return copy;
+    });
+  }}
+/>
+
+ {errors[index]?.role && (
+  <p className="error-text">{errors[index].role}</p>
+
 )}
 
             <select

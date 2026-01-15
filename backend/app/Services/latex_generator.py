@@ -67,20 +67,36 @@ def generate_experience_section(experience: list) -> str:
 # -------------------------------
 def generate_projects_section(projects: list) -> str:
     section = ""
+
     for p in projects:
+        title = escape_latex(p.get("title", ""))
+        tech = escape_latex(", ".join(p.get("technologies", [])))
+        date = escape_latex(p.get("projectDate", ""))
+        github = p.get("github")
+
+        # 🔗 external link icon (only if github exists)
+        link_tex = ""
+        if github:
+            link_tex = (
+                f"~\\href{{{github}}}{{\\faExternalLink*}}"
+            )
+
         section += (
             "\\resumeProjectHeading"
-            f"{{\\textbf{{{escape_latex(p.get('title',''))}}} $|$ "
-            f"\\emph{{{escape_latex(p.get('tech',''))}}}}}"
-            f"{{{escape_latex(p.get('date',''))}}}\n"
+            f"{{\\textbf{{{title}}} $|$ "
+            f"\\emph{{{tech}}}{link_tex}}}"
+            f"{{{date}}}\n"
             "\\resumeItemListStart\n"
         )
 
-        for point in p.get("points", []):
-            section += f"\\resumeItem{{{escape_latex(point)}}}\n"
+        # description → bullet points
+        for line in p.get("description", "").split(". "):
+            section += f"\\resumeItem{{{escape_latex(line)}}}\n"
 
         section += "\\resumeItemListEnd\n"
+
     return section
+
     
 # -------------------------------
 # Skills Section
