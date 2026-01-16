@@ -92,11 +92,75 @@ if (!isEditing) {
   const validateForm = () => {
   const newErrors = {};
 
-  
+  // =====================
+  // Full Name
+  // =====================
+  if (!draft.fullName?.trim()) {
+    newErrors.fullName = "Full name is required";
+  } else if (!/^[A-Za-z ]{2,}$/.test(draft.fullName.trim())) {
+    newErrors.fullName = "Full name must contain only letters and spaces";
+  }
 
+  // =====================
+  // Location
+  // =====================
+  if (!draft.location?.city?.trim()) {
+    newErrors.city = "City is required";
+  }
+
+  if (!draft.location?.state?.trim()) {
+    newErrors.state = "State is required";
+  }
+
+  if (!draft.location?.pincode?.trim()) {
+    newErrors.pincode = "Pincode is required";
+  } else if (!/^\d{6}$/.test(draft.location.pincode)) {
+    newErrors.pincode = "Pincode must be exactly 6 digits";
+  }
+
+  // =====================
+  // Contact
+  // =====================
+  const phone = draft.contact?.phone || "";
+  if (!phone.trim()) {
+    newErrors.phone = "Phone number is required";
+  } else if (!/^[6-9]\d{9}$/.test(phone)) {
+    newErrors.phone = "Invalid phone number";
+  }
+
+  if (!draft.contact?.email?.trim()) {
+    newErrors.email = "Email is required";
+  } else if (
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(draft.contact.email)
+  ) {
+    newErrors.email = "Invalid email address";
+  }
+
+  // =====================
+  // Links (optional, but validated if present)
+  // =====================
+  const isValidUrl = (url) =>
+    url.startsWith("http://") || url.startsWith("https://");
+
+  if (draft.links?.linkedin?.trim() && !isValidUrl(draft.links.linkedin)) {
+    newErrors.linkedin = "LinkedIn URL must start with http:// or https://";
+  }
+
+  if (draft.links?.github?.trim() && !isValidUrl(draft.links.github)) {
+    newErrors.github = "GitHub URL must start with http:// or https://";
+  }
+
+  if (draft.links?.portfolio?.trim() && !isValidUrl(draft.links.portfolio)) {
+    newErrors.portfolio = "Portfolio URL must start with http:// or https://";
+  }
+
+  // =====================
+  // Finalize
+  // =====================
   setErrors(newErrors);
   return Object.keys(newErrors).length === 0;
 };
+
 
 
   /* =========================
@@ -110,15 +174,7 @@ if (!isEditing) {
 
 
     // 🔍 Simple validation example
-    if (!draft.fullName.trim()) {
-      setError("Full name is required");
-      return;
-    }
-
-    if (!draft.contact.email.trim()) {
-      setError("Email is required");
-      return;
-    }
+    
 
     try {
       setLoading(true);

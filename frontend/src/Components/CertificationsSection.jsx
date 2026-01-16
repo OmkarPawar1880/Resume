@@ -100,14 +100,54 @@ if (!isEditing) {
 }
 
 const validateCertifications = () => {
+  const currentYear = new Date().getFullYear();
+
   const newErrors = resume.certifications.map((cert) => {
     const e = {};
 
-    if (!cert.name.trim()) e.name = "Certification name required";
-    if (!cert.organization.trim())
-      e.organization = "Organization required";
-    if (!cert.year.trim())
-      e.year = "Year required";
+    // =====================
+    // Name
+    // =====================
+    if (!cert.name.trim()) {
+      e.name = "Certification name is required";
+    } else if (cert.name.trim().length < 3) {
+      e.name = "Certification name must be at least 3 characters";
+    }
+
+    // =====================
+    // Organization
+    // =====================
+    if (!cert.organization.trim()) {
+      e.organization = "Organization is required";
+    } else if (cert.organization.trim().length < 2) {
+      e.organization =
+        "Organization name must be at least 2 characters";
+    }
+
+    // =====================
+    // Year
+    // =====================
+    if (!cert.year.trim()) {
+      e.year = "Year is required";
+    } else if (!/^\d{4}$/.test(cert.year)) {
+      e.year = "Year must be a 4-digit number";
+    } else {
+      const yearNum = Number(cert.year);
+      if (yearNum < 1980 || yearNum > currentYear) {
+        e.year = "Year is out of valid range";
+      }
+    }
+
+    // =====================
+    // URL (optional)
+    // =====================
+    if (
+      cert.url?.trim() &&
+      !/^https?:\/\//.test(cert.url)
+    ) {
+      e.url =
+        "Certificate URL must start with http:// or https://";
+    }
 
     return e;
   });
@@ -120,50 +160,34 @@ const validateCertifications = () => {
 
 
 
+
   /* =========================
      SAVE HANDLER
   ========================== */
   const handleSaveCertifications = async () => {
+  if (!validateCertifications()) return;
 
-    if (!validateCertifications()) return;
+  setError("");
+  setSuccess("");
 
+  try {
+    setSaving(true);
 
-    setError("");
-    setSuccess("");
+    await new Promise((res) => setTimeout(res, 800));
 
-    // 🔍 Basic validation
-    if (
-      resume.certifications.some(
-        (cert) => !cert.name.trim()
-      )
-    ) {
-      setError("Certification name is required");
-      return;
-    }
+    await savePartialResumeToBackend({
+      certifications: resume.certifications,
+    });
 
-    try {
-      setSaving(true);
-
-      // ⏳ simulate backend save
-      await new Promise((res) => setTimeout(res, 800));
-
-await savePartialResumeToBackend({
-  certifications: resume.certifications,
-});
-
-
-
-
-      setSuccess("Certifications saved successfully ✅");
-      setDirty(false);
-      setIsEditing(false);
-
-    } catch {
-      setError("Failed to save certifications");
-    } finally {
-      setSaving(false);
-    }
-  };
+    setSuccess("Certifications saved successfully ✅");
+    setDirty(false);
+    setIsEditing(false);
+  } catch {
+    setError("Failed to save certifications");
+  } finally {
+    setSaving(false);
+  }
+};
 
   return (
     <section className="certifications">
@@ -286,6 +310,12 @@ await savePartialResumeToBackend({
                 setDirty(true);
               }}
             />
+            {errors[index]?.url && (
+  <p className="error-text">
+    {errors[index].url}
+  </p>
+)}
+
           </div>
 
           <div className="cert-actions">

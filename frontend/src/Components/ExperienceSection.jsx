@@ -150,13 +150,73 @@ if (!isEditing) {
     }
     return null;
   };
+  
   const validateExperience = () => {
   const newErrors = draft.map((exp) => {
     const e = {};
 
-    if (!exp.company.trim()) e.company = "Company required";
-    if (!exp.role.trim()) e.role = "Role required";
-    if (!exp.startDate) e.startDate = "Start date required";
+    // =====================
+    // Required fields
+    // =====================
+    if (!exp.company.trim()) {
+      e.company = "Company name is required";
+    }
+
+    if (!exp.role.trim()) {
+      e.role = "Role is required";
+    }
+
+    // =====================
+    // Experience type
+    // =====================
+    const allowedTypes = [
+      "Intern",
+      "Full-time",
+      "Part-time",
+      "Remote",
+      "Contract",
+    ];
+    if (!allowedTypes.includes(exp.type)) {
+      e.type = "Invalid experience type";
+    }
+
+    // =====================
+    // Date validation (YYYY-MM)
+    // =====================
+    if (!exp.startDate) {
+      e.startDate = "Start date is required";
+    } else if (!/^\d{4}-\d{2}$/.test(exp.startDate)) {
+      e.startDate = "Start date must be YYYY-MM";
+    }
+
+    if (exp.endDate) {
+      if (!/^\d{4}-\d{2}$/.test(exp.endDate)) {
+        e.endDate = "End date must be YYYY-MM";
+      } else if (exp.startDate && exp.endDate < exp.startDate) {
+        e.endDate = "End date cannot be before start date";
+      }
+    }
+
+    // =====================
+    // Responsibilities
+    // =====================
+    if (!exp.responsibilities.trim()) {
+      e.responsibilities = "Responsibilities are required";
+    } else if (exp.responsibilities.trim().length < 20) {
+      e.responsibilities =
+        "Responsibilities must be at least 20 characters";
+    }
+
+    // =====================
+    // Optional URL
+    // =====================
+    if (
+      exp.offerLetterUrl?.trim() &&
+      !/^https?:\/\//.test(exp.offerLetterUrl)
+    ) {
+      e.offerLetterUrl =
+        "URL must start with http:// or https://";
+    }
 
     return e;
   });

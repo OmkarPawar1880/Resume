@@ -20,6 +20,8 @@ const ProjectsSection = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [errors, setErrors] = useState([]);
+
 
   useEffect(() => {
     setDraft(resume.projects);
@@ -136,44 +138,88 @@ if (!isEditing) {
   /* =========================
      VALIDATION
   ========================== */
-  const validate = () => {
-    if (draft.some((p) => !p.title.trim())) {
-      return "Project title is required";
+  const validateProjects = () => {
+  const newErrors = draft.map((proj) => {
+    const e = {};
+
+    // =====================
+    // Title
+    // =====================
+    if (!proj.title.trim()) {
+      e.title = "Project title is required";
     }
-    return null;
-  };
+
+    // =====================
+    // Technologies
+    // =====================
+    if (!proj.technologies || proj.technologies.length === 0) {
+      e.technologies = "At least one technology is required";
+    }
+
+    // =====================
+    // Project date (YYYY-MM)
+    // =====================
+    if (proj.projectDate && !/^\d{4}-\d{2}$/.test(proj.projectDate)) {
+      e.projectDate = "Project date must be YYYY-MM";
+    }
+
+    // =====================
+    // Description
+    // =====================
+    if (!proj.description.trim()) {
+      e.description = "Project description is required";
+    } else if (proj.description.replace(/•/g, "").trim().length < 30) {
+      e.description =
+        "Project description must be at least 30 characters";
+    }
+
+    // =====================
+    // GitHub URL (optional)
+    // =====================
+    if (
+      proj.github?.trim() &&
+      !/^https?:\/\//.test(proj.github)
+    ) {
+      e.github = "GitHub URL must start with http:// or https://";
+    }
+
+    return e;
+  });
+
+  setErrors(newErrors);
+  return newErrors.every(
+    (row) => Object.keys(row).length === 0
+  );
+};
 
   /* =========================
      SAVE HANDLER
   ========================== */
   const handleSave = async () => {
-    setError("");
-    setSuccess("");
+  setError("");
+  setSuccess("");
 
-    const validationError = validate();
-    if (validationError) {
-      setError(validationError);
-      return;
-    }
+  if (!validateProjects()) return;
 
-    try {
-      setLoading(true);
-      await new Promise((res) => setTimeout(res, 800));
+  try {
+    setLoading(true);
 
-      replaceSection("projects", draft);
-      await savePartialResumeToBackend({
-  projects: draft,
-});
+    await new Promise((res) => setTimeout(res, 800));
 
-      setSuccess("Projects saved successfully ✅");
-      setIsEditing(false);
+    replaceSection("projects", draft);
+    await savePartialResumeToBackend({
+      projects: draft,
+    });
 
-    } catch {
-      setError("Failed to save projects");
-    } finally {
-      setLoading(false);
-    }
-  };
+    setSuccess("Projects saved successfully ✅");
+    setIsEditing(false);
+  } catch {
+    setError("Failed to save projects");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <section className="projects-section">
@@ -194,6 +240,10 @@ if (!isEditing) {
             }
           />
 
+          {errors[index]?.title && (
+  <p className="error-text">{errors[index].title}</p>
+)}
+
           <input
             type="month"
             value={proj.projectDate}
@@ -205,6 +255,11 @@ if (!isEditing) {
               )
             }
           />
+          {errors[index]?.projectDate && (
+  <p className="error-text">{errors[index].projectDate}</p>
+)}
+
+
 
           <input
             placeholder="GitHub Repository"
@@ -213,6 +268,12 @@ if (!isEditing) {
               updateField(index, "github", e.target.value)
             }
           />
+          {errors[index]?.github && (
+  <p className="error-text">{errors[index].github}</p>
+)}
+
+
+
 <input
   placeholder="Technologies (e.g. React, Node, MySQL)"
   value={proj.technologies.join(", ")}
@@ -227,6 +288,12 @@ if (!isEditing) {
     )
   }
 />
+{errors[index]?.technologies && (
+  <p className="error-text">
+    {errors[index].technologies}
+  </p>
+)}
+
 
           <textarea
             rows="4"
@@ -242,6 +309,12 @@ if (!isEditing) {
               )
             }
           />
+          {errors[index]?.description && (
+  <p className="error-text">
+    {errors[index].description}
+  </p>
+)}
+
 
           {draft.length > 1 && (
             <button
