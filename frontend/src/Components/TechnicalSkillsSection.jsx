@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useResume } from "../context/useResume";
 
-const SKILL_LEVELS = ["Basic", "Intermediate", "Advanced"];
+const SKILL_LEVELS = [
+  "BEGINNER",
+  "INTERMEDIATE",
+  "ADVANCED",
+  "EXPERT",
+];
 
 const TechnicalSkillsSection = () => {
   const { resume, replaceSection ,savePartialResumeToBackend } = useResume();
@@ -99,14 +104,58 @@ if (!isEditing) {
   
 const validateSkills = () => {
   const newErrors = draft.map((category) => {
-    if (category.skills.length === 0) {
-      return "Add at least one skill";
+    const e = {};
+
+    // =====================
+    // Category title
+    // =====================
+    if (!category.title?.trim()) {
+      e.title = "Skill category title is required";
+    } else if (category.title.trim().length < 2) {
+      e.title = "Category title must be at least 2 characters";
     }
-    return "";
+
+    // =====================
+    // Skills list
+    // =====================
+    if (!category.skills || category.skills.length === 0) {
+      e.skills = "Add at least one skill";
+    } else {
+      const skillErrors = category.skills.map((skill) => {
+        const se = {};
+
+        if (!skill.name?.trim()) {
+          se.name = "Skill name is required";
+        } else if (skill.name.trim().length < 2) {
+          se.name = "Skill name must be at least 2 characters";
+        }
+
+        const allowedLevels = [
+          "BEGINNER",
+          "INTERMEDIATE",
+          "ADVANCED",
+          "EXPERT",
+        ];
+
+        if (!allowedLevels.includes(skill.level?.toUpperCase())) {
+          se.level = "Invalid skill level";
+        }
+
+        return se;
+      });
+
+      if (skillErrors.some((s) => Object.keys(s).length > 0)) {
+        e.skillErrors = skillErrors;
+      }
+    }
+
+    return e;
   });
 
   setErrors(newErrors);
-  return newErrors.every((e) => !e);
+  return newErrors.every(
+    (row) => Object.keys(row).length === 0
+  );
 };
 
   
@@ -115,33 +164,29 @@ const validateSkills = () => {
      SAVE HANDLER
   ========================== */
   const handleSave = async () => {
+  if (!validateSkills()) return;
 
-    if (!validateSkills()) return;
+  setError("");
+  setSuccess("");
 
-    
+  try {
+    setSaving(true);
 
-    setError("");
-    setSuccess("");
+    await new Promise((res) => setTimeout(res, 800));
 
-    
-    try {
-      setSaving(true);
-      await new Promise((res) => setTimeout(res, 800));
+    replaceSection("skills", draft);
+    await savePartialResumeToBackend({
+      skills: draft,
+    });
 
-      replaceSection("skills", draft);
-      await savePartialResumeToBackend({
-  skills: draft,
-});
-
-      setSuccess("Skills saved successfully ✅");
-      setIsEditing(false);
-
-    } catch {
-      setError("Failed to save skills");
-    } finally {
-      setSaving(false);
-    }
-  };
+    setSuccess("Skills saved successfully ✅");
+    setIsEditing(false);
+  } catch {
+    setError("Failed to save skills");
+  } finally {
+    setSaving(false);
+  }
+};
 
   return (
     <section className="skills-section">
@@ -194,7 +239,7 @@ const validateSkills = () => {
 ========================= */
 const SkillCategory = ({ category, onAddSkill, onRemoveSkill }) => {
   const [skillName, setSkillName] = useState("");
-  const [level, setLevel] = useState("Intermediate");
+  const [level, setLevel] = useState("INTERMEDIATE");
 
   const submitSkill = (e) => {
     e.preventDefault();
@@ -206,7 +251,7 @@ const SkillCategory = ({ category, onAddSkill, onRemoveSkill }) => {
     });
 
     setSkillName("");
-    setLevel("Intermediate");
+    setLevel("INTERMEDIATE");
   };
 
   return (

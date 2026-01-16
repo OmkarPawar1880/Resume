@@ -130,12 +130,54 @@ const validateEducation = () => {
   const newErrors = draft.map((edu) => {
     const e = {};
 
-    if (!edu.institution.trim()) e.institution = "Institution required";
-    if (!edu.degree.trim()) e.degree = "Degree required";
-    if (!edu.startYear.trim()) e.startYear = "Start year required";
-    if (!edu.endYear.trim()) e.endYear = "End year required";
-    if (!edu.city.trim()) e.city = "City required";
-    if (!edu.state.trim()) e.state = "State required";
+    // =====================
+    // Required text fields
+    // =====================
+    if (!edu.institution.trim()) e.institution = "Institution is required";
+    if (!edu.degree.trim()) e.degree = "Degree is required";
+    if (!edu.city.trim()) e.city = "City is required";
+    if (!edu.state.trim()) e.state = "State is required";
+
+    // =====================
+    // Year validation (mirror backend)
+    // =====================
+    if (!edu.startYear.trim()) {
+      e.startYear = "Start year is required";
+    } else if (!/^\d{4}$/.test(edu.startYear)) {
+      e.startYear = "Start year must be a 4-digit year";
+    }
+
+    if (!edu.endYear.trim()) {
+      e.endYear = "End year is required";
+    } else if (!/^\d{4}$/.test(edu.endYear)) {
+      e.endYear = "End year must be a 4-digit year";
+    } else if (
+      /^\d{4}$/.test(edu.startYear) &&
+      Number(edu.endYear) < Number(edu.startYear)
+    ) {
+      e.endYear = "End year must be after start year";
+    }
+
+    // =====================
+    // Grade validation
+    // =====================
+    if (edu.gradeValue.trim()) {
+      const value = Number(edu.gradeValue);
+
+      if (Number.isNaN(value)) {
+        e.gradeValue = "Grade must be numeric";
+      } else if (
+        edu.gradeType === "CGPA" &&
+        (value < 0 || value > 10)
+      ) {
+        e.gradeValue = "CGPA must be between 0 and 10";
+      } else if (
+        edu.gradeType !== "CGPA" &&
+        (value < 0 || value > 100)
+      ) {
+        e.gradeValue = "Percentage must be between 0 and 100";
+      }
+    }
 
     return e;
   });

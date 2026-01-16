@@ -1,12 +1,9 @@
 import re
 from datetime import datetime
-from datetime import datetime
+CURRENT_YEAR = datetime.now().year
 from pydantic import BaseModel, Field, validator
 from typing import List
 
-CURRENT_YEAR = datetime.now().year
-
-CURRENT_YEAR = datetime.now().year
 
 def validate_pincode(pincode: str) -> str:
     """
@@ -58,13 +55,16 @@ def validate_grade(grade_type: str, grade_value: str | None):
     if grade_value is None:
         return grade_value
 
-    if grade_type.upper() == "CGPA":
+    try:
         value = float(grade_value)
+    except ValueError:
+        raise ValueError("Grade value must be numeric")
+
+    if grade_type.upper() == "CGPA":
         if value < 0 or value > 10:
             raise ValueError("CGPA must be between 0 and 10")
 
     elif grade_type.upper() == "PERCENTAGE":
-        value = float(grade_value)
         if value < 0 or value > 100:
             raise ValueError("Percentage must be between 0 and 100")
 
@@ -90,7 +90,7 @@ def validate_experience_type(exp_type: str) -> str:
         raise ValueError(
             "Experience type must be FULL_TIME, PART_TIME, INTERNSHIP, or CONTRACT"
         )
-    return exp_type
+    return exp_type.upper()
 
 
 def validate_responsibilities(text: str) -> str:
@@ -160,9 +160,3 @@ def validate_cert_year(year: str) -> str:
     if year_int < 1980 or year_int > CURRENT_YEAR:
         raise ValueError("Certification year is out of valid range")
     return year
-
-    @validator("education")
-    def check_education_not_empty(cls, value):
-        if len(value) == 0:
-            raise ValueError("At least one education entry is required")
-        return value                 
