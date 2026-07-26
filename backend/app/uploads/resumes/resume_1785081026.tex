@@ -1,0 +1,169 @@
+%-------------------------
+% JSON Driven Resume Template (Compact, No Overlap)
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+% ---------------- Packages ----------------
+\usepackage[T1]{fontenc}   % fixes bullets rendering as hyphens
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+
+% ---------------- Margins ----------------
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.25in}
+\addtolength{\topmargin}{-0.85in}
+\addtolength{\textheight}{1.45in}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0pt}
+\urlstyle{same}
+
+% ---------------- Section Style (SAFE spacing) ----------------
+\titleformat{\section}
+  {\scshape\raggedright\large\bfseries}
+  {}{0em}{}[\titlerule]
+
+\titlespacing*{\section}{0pt}{8pt}{6pt}
+
+% ATS friendly
+\pdfgentounicode=1
+
+% ---------------- List Spacing (SAFE & compact) ----------------
+% NOTE: \resumeSubHeadingListStart opens itemize LEVEL 1, and
+% \resumeItemListStart opens a NESTED itemize at LEVEL 2 inside it.
+% LaTeX's built-in default label for level 2 is an en-dash ("--"),
+% not a bullet -- that's what was rendering as a hyphen. We set the
+% label explicitly per level so level 2 also uses a real bullet.
+\setlist[itemize,1]{
+  leftmargin=0.15in,
+  itemsep=2pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+\setlist[itemize,2]{
+  label=\textbullet,
+  leftmargin=*,
+  itemsep=2pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+% ---------------- Custom Commands ----------------
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{#2} \\
+    \textit{#3} & \textit{#4}
+  \end{tabular*}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    #1 & \textbf{#2} \\
+  \end{tabular*}
+}
+
+% ---------------- Document ----------------
+\begin{document}
+
+% ================= HEADER =================
+\begin{center}
+  {\Huge \scshape Omkar Pawar} \\[2pt]
+  Kadegaon, Maharashtra \\[6pt]
+
+  \small
+  \href{tel:9172952310}{\faPhone\ 9172952310}
+  \quad
+  \href{mailto:omkarpawar1880@gmail.com}{\faEnvelope\ omkarpawar1880@gmail.com}
+  \quad
+  \href{  }{\faLinkedin\ LinkedIn}
+  \quad
+  \href{  }{\faGithub\ GitHub}
+  \quad
+  \href{  }{\faGlobe\ Portfolio}
+\end{center}
+
+% ================= EDUCATION =================
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading{BVDU, Yashwantrao Mohite Institute Of Management, Karad}{2023 -- 2026}{Bachelor of Computer Applications -  - CGPA - 9.0}{Karad, Maharashtra}
+
+\resumeSubHeadingListEnd
+
+% ================= EXPERIENCE =================
+\section{Experience}
+\resumeSubHeadingListStart
+\resumeSubheading{NSDC}{May 2025 -- Jun 2025}{Senior Data Engineer Intern (INTERNSHIP)}{Remote}
+\resumeItemListStart
+\resumeItem{Led the design and implementation of scalable data pipelines to support national skill development initiatives. Built and optimized ETL workflows using Python and SQL, handling both batch and real-time data ingestion. Deployed data models and warehouse solutions on AWS (Redshift, S3) and Google Cloud (BigQuery).}
+\resumeItemListEnd
+\resumeSubheading{TheSmartBridge}{Sep 2025 -- Oct 2025}{Intern (INTERNSHIP)}{Remote}
+\resumeItemListStart
+\resumeItem{Created text embeddings, performed vector search, and integrated outputs with Cloud Storage and BigQuery. Used Vertex AI models for text generation, summarization, and classification. Worked on challenge labs requiring independent problem-solving, debugging, and model execution.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% ================= PROJECTS =================
+\section{Projects}
+\resumeSubHeadingListStart
+\resumeProjectHeading{\textbf{Livercare Prediction}}{Mar 2025}
+\resumeItemListStart
+\resumeItem{Developed an AI-powered web application for liver disease prediction using Machine Learning and Flask. Built predictive models using Pandas, NumPy, and Scikit-learn, integrated them into a Flask backend, and deployed an interactive web interface for real-time predictions.}
+\resumeItemListEnd
+\resumeProjectHeading{\textbf{Ember and Brew}}{Jan 2025}
+\resumeItemListStart
+\resumeItem{Developed a responsive café website using React, HTML, CSS, and GSAP with smooth animations, interactive components, and optimized navigation. Deployed the application on a cloud hosting platform.}
+\resumeItemListEnd
+\resumeProjectHeading{\textbf{Resume Builder Website}}{Dec 2025}
+\resumeItemListStart
+\resumeItem{Developed a full-stack Resume Builder application using React, FastAPI, LaTeX, and PostgreSQL. Implemented ATS-friendly PDF generation, real-time preview, backend APIs, and database integration for resume storage and retrieval.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% ================= SKILLS =================
+\section{Technical Skills}
+\resumeSubHeadingListStart
+\small{\item{
+\textbf{Programming Languages}: Python, Java, JavaScript, C Programming \\
+\textbf{Technologies / Frameworks}: Node.js, Express.js, React, GSAP \\
+\textbf{Developer Tools}: VS Code, Git, GitHub, Postman, Render, Vercel, Netlify \\
+}}
+
+\resumeSubHeadingListEnd
+
+% ================= CERTIFICATIONS =================
+\section{Certifications}
+\resumeSubHeadingListStart
+\small{\item{
+\textbf{•} Data Analytics Certificate - Deloitte (2025) \\
+\textbf{•} Artificial Intelligence (AI) Machine Learning (ML) - The SmartBridge (2025) \\
+}}
+
+\resumeSubHeadingListEnd
+
+\end{document}

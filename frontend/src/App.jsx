@@ -1,25 +1,15 @@
-import React from 'react'
-import './App.css'
-import Hero from './Components/Hero'
+import "./App.css";
 
-import ResumeBuilder from './Pages/ResumeBuilder'
+import AppRoutes from "./user/routes/AppRoutes";
+
 
 
 
 const App = () => {
-  return (
-    <>
-      {/* <Header /> */}
-      <Hero />
-      
-      <ResumeBuilder />
-      
-      
-      
-      
 
-    </>
-  )
-}
+    return <AppRoutes />;
+    
 
-export default App
+};
+
+export default App;

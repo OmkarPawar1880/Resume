@@ -32,7 +32,7 @@ A full-stack **Resume Builder application** that allows users to create resumes 
 - Context API
 - Fetch API
 
-### Backend
+### 
 - FastAPI
 - Python 3.10+
 - Uvicorn
@@ -45,7 +45,7 @@ A full-stack **Resume Builder application** that allows users to create resumes 
 
 ## 📁 Project Structure
 ```bash
-backend/
+/
 │
 ├── app/
 │ ├── api/
@@ -72,7 +72,7 @@ frontend/
 
 ---
 
-## ⚙️ Backend Setup (FastAPI)
+## ⚙️  Setup (FastAPI)
 
 ### 1️⃣ Create virtual environment
 ```bash
@@ -102,12 +102,12 @@ macOS
 ```bash
 brew install mactex
 ```
-4️⃣ Run backend
+4️⃣ Run 
 ```bash
 
 uvicorn app.main:app --reload
 ```
-Backend runs at:
+ runs at:
 
 ```bash
 http://localhost:8000

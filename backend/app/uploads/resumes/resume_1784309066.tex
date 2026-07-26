@@ -1,0 +1,171 @@
+%-------------------------
+% JSON Driven Resume Template (Compact, No Overlap)
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+% ---------------- Packages ----------------
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+
+% ---------------- Margins ----------------
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.25in}
+\addtolength{\topmargin}{-0.85in}
+\addtolength{\textheight}{1.45in}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0pt}
+\urlstyle{same}
+
+% ---------------- Section Style (SAFE spacing) ----------------
+\titleformat{\section}
+  {\scshape\raggedright\large\bfseries}
+  {}{0em}{}[\titlerule]
+
+\titlespacing*{\section}{0pt}{8pt}{6pt}
+
+% ATS friendly
+\pdfgentounicode=1
+
+% ---------------- List Spacing (SAFE & compact) ----------------
+\setlist[itemize]{
+  leftmargin=0.15in,
+  itemsep=2pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+
+% ---------------- Custom Commands ----------------
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{#2} \\
+    \textit{#3} & \textit{#4}
+  \end{tabular*}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    #1 & \textbf{#2} \\
+  \end{tabular*}
+}
+
+
+
+% ---------------- Document ----------------
+\begin{document}
+
+% ================= HEADER =================
+\begin{center}
+  {\Huge \scshape Omkar Pawar} \\[2pt]
+  KADEGAON, MAHARASHTRA \\[6pt]
+
+  \small
+  \href{tel:9172952310}{\faPhone\ 9172952310}
+  \quad
+  \href{mailto:omkarpawar1880@gmail.com}{\faEnvelope\ omkarpawar1880@gmail.com}
+  \quad
+  \href{ https://www.linkedin.com/in/omkar-pawar/ }{\faLinkedin\ LinkedIn}
+  \quad
+  \href{ https://github.com/omkarpawar }{\faGithub\ GitHub}
+  \quad
+  \href{ https://omkarpawar.dev }{\faGlobe\ Portfolio}
+\end{center}
+
+
+% ================= EDUCATION =================
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading{BVDU,Yashwantrao Mohite Institute Of Management,Karad}{2023 -- 2026}{B.C.A -  - CGPA - 9.0}{Karad, Maharashtra}
+
+\resumeSubHeadingListEnd
+
+% ================= EXPERIENCE =================
+\section{Experience}
+\resumeSubHeadingListStart
+\resumeSubheading{NSDC}{May 2025 -- Jun 2025}{Senior Data Engineer Intern (INTERNSHIP)}{Remote}
+\resumeItemListStart
+\resumeItem{led the design and implementation of scalable data pipelines to support national skill development initiatives.}
+\resumeItem{built and optimized ETL workflows using Python and SQL, handling both batch and real-time data ingestion.}
+\resumeItem{Deployed data models and warehouse solutions on cloud platform such as AWS (Redshift,S3) and GCP (BigQuery).}
+\resumeItemListEnd
+\resumeSubheading{TheSmartBridge}{Sep 2025 -- Oct 2025}{Intern (INTERNSHIP)}{Remote}
+\resumeItemListStart
+\resumeItem{Created text embeddings, performed vector search, and integrated outputs with Cloud Storage and BigQuery.}
+\resumeItem{Used Vertex AI models for text generation, summarization, and classification.}
+\resumeItem{Worked on challenge labs that required independent problem-solving, debugging, and model execution.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+% ================= PROJECTS =================
+\section{Projects}
+\resumeSubHeadingListStart
+\resumeProjectHeading{\textbf{Livercare Prediction}~\href{https://github.com/OmkarPawar1880/EPBL_AIML_LiverCare_Flaskapp_Project}{\faExternalLink*}}{Mar 2025}
+\resumeItemListStart
+\resumeItem{Developed an AI-powered web application for liver disease prediction using Machine Learning and Flask, enabling users to input medical parameters and receive real-time diagnostic predictions.}
+\resumeItem{Built and trained predictive models using Python libraries (Pandas, NumPy, Scikit-learn) and integrated them into a production-ready backend for reliable inference.}
+\resumeItem{Designed an end-to-end deployment pipeline with an interactive web interface, improving accessibility of healthcare insights through a scalable ML-driven solution.}
+\resumeItemListEnd
+\resumeProjectHeading{\textbf{Ember and Brew }~\href{https://github.com/OmkarPawar1880/CoffeeShop1880}{\faExternalLink*}}{Jan 2025}
+\resumeItemListStart
+\resumeItem{usability and accessibility across devices.}
+\resumeItem{Developed a visually rich café website (Ember \& Brew) using React, HTML, CSS, and GSAP, featuring smooth animations, interactive components, and responsive design for an engaging user experience.}
+\resumeItem{Deployed the application on a cloud hosting platform with optimized performance and navigation flow, strengthening the café's digital presence and online reach.}
+\resumeItemListEnd
+\resumeProjectHeading{\textbf{Resume Builder Website}~\href{https://github.com/OmkarPawar1880/Resume}{\faExternalLink*}}{Dec 2025}
+\resumeItemListStart
+\resumeItem{Developing a full-stack Resume Builder web application using React, FastAPI, LaTeX, and PostgreSQL, enabling users to generate professional, ATS-friendly resumes dynamically.}
+\resumeItem{Implemented backend services for user input processing, template rendering, and PDF generation via LaTeX, ensuring accurate formatting and high-quality document output.}
+\resumeItem{Designed a responsive UI with real-time preview and database integration, improving usability and enabling efficient storage and retrieval of resume data.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+% ================= SKILLS =================
+\section{Technical Skills}
+\resumeSubHeadingListStart
+\small{\item{
+\textbf{Programming Languages}: Python, Java, Javascript, C Programming \\
+\textbf{Technologies / Frameworks}: Node Js, Express Js, React, Gsap \\
+\textbf{Developer Tools}: VScode, Git, Github, Postman, Render, Vercel, Netlify \\
+}}
+
+\resumeSubHeadingListEnd
+
+% ================= CERTIFICATIONS =================
+\section{Certifications}
+\resumeSubHeadingListStart
+\small{\item{
+\textbf{•} Data Analytics Certificate from Deloitte - Deloitte (2025) \\
+\textbf{•} Artificial Intelligence (AI) Machine Learning (ML) - The SmartBridge (2025) \\
+}}
+
+\resumeSubHeadingListEnd
+
+\end{document}

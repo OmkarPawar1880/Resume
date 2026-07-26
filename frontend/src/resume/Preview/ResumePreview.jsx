@@ -1,0 +1,275 @@
+import { useResume } from "../context/useResume";
+import DownloadButton from "../Components/DownloadButton";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaLinkedin,
+  FaGithub,
+  FaGlobe,
+} from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
+
+
+const formatMonthYear = (date) => {
+  if (!date) return "Present";
+
+  const [year, month] = date.split("-");
+
+  const months = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
+
+  return `${months[Number(month) - 1]} ${year}`;
+};
+
+const ResumePreview = () => {
+ const {
+    resume,
+    
+} = useResume();
+ 
+
+  // 🔐 SAFE NORMALIZATION
+  const personal = resume.personal || {
+    fullName: "",
+    location: { city: "", state: "", pincode: "" },
+    contact: { phone: "", email: "" },
+    links: { linkedin: "", github: "", portfolio: "" },
+  };
+
+  const education = resume.education || [];
+  const experience = resume.experience || [];
+  const projects = resume.projects || [];
+  const skills = resume.skills || [];
+  const certifications = resume.certifications || [];
+
+  return (
+    <div className="resume-page">
+      
+   
+
+{/* HEADER */}
+      <header className="resume-header">
+        <h1 className="resume-name">{personal.fullName}</h1>
+
+        <div className="resume-location">
+          {personal.location.city} – {personal.location.state}{" "}
+          {personal.location.pincode}
+        </div>
+
+        <div className="resume-contacts">
+  {personal.contact.phone && (
+    <span className="contact-item">
+      <FaPhoneAlt className="contact-icon" />
+      {personal.contact.phone}
+    </span>
+  )}
+
+  {personal.contact.email && (
+    <span className="contact-item">
+      <FaEnvelope className="contact-icon" />
+      {personal.contact.email}
+    </span>
+  )}
+
+  {personal.links.linkedin && (
+    <span className="contact-item">
+      <FaLinkedin className="contact-icon" />
+      <a
+        href={personal.links.linkedin}
+        target="_blank"
+        rel="noreferrer"
+      >
+        LinkedIn
+      </a>
+    </span>
+  )}
+
+  {personal.links.github && (
+    <span className="contact-item">
+      <FaGithub className="contact-icon" />
+      <a
+        href={personal.links.github}
+        target="_blank"
+        rel="noreferrer"
+      >
+        GitHub
+      </a>
+    </span>
+  )}
+
+  {personal.links.portfolio && (
+    <span className="contact-item">
+      <FaGlobe className="contact-icon" />
+      <a
+        href={personal.links.portfolio}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Portfolio
+      </a>
+    </span>
+  )}
+</div>
+      </header>
+
+      {/* EDUCATION */}
+      {education.length > 0 && (
+        <section>
+          <h2>Education</h2>
+          {education.map((edu, i) => (
+            <div key={i} className="row">
+              <div>
+                <strong>{edu.institution}</strong>
+                <div>
+                  {edu.degree}
+                  {edu.specialization && ` – ${edu.specialization}`}
+                </div>
+              </div>
+              <div className="right">
+                {edu.startYear} – {edu.endYear}
+                <br />
+                {edu.city}, {edu.state}
+                {edu.gradeValue && (
+                  <div>
+                    {edu.gradeType}: {edu.gradeValue}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {/* EXPERIENCE */}
+    {experience.length > 0 && (
+  <section>
+    <h2>Experience</h2>
+
+    {experience.map((exp, i) => (
+      <div key={i} className="block">
+        <div className="row">
+          <strong>{exp.company}</strong>
+
+          <span className="right">
+            {formatMonthYear(exp.startDate)} – {formatMonthYear(exp.endDate)}
+
+            {exp.offerLetterUrl && (
+              <a
+                href={exp.offerLetterUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="external-link"
+                title="View Offer Letter"
+              >
+                <FaExternalLinkAlt />
+              </a>
+            )}
+          </span>
+        </div>
+
+        <div className="row">
+          <em>
+            {exp.role} ({exp.type})
+          </em>
+
+          {exp.location && (
+            <span className="right">
+              {exp.location}
+            </span>
+          )}
+        </div>
+
+        <ul>
+          {exp.responsibilities
+            ?.split("\n")
+            .filter(Boolean)
+            .map((r, idx) => (
+              <li key={idx}>
+                {r.replace("•", "").trim()}
+              </li>
+            ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+)}
+
+      {/* PROJECTS */}
+   {projects.length > 0 && (
+  <section>
+    <h2>Projects</h2>
+
+    {projects.map((p, i) => (
+      <div key={i} className="block">
+        <div className="row">
+          <strong className="project-title">
+            {p.title}
+
+            {p.github && (
+              <a
+                href={p.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View GitHub Repository"
+                className="external-link"
+              >
+                <FaExternalLinkAlt />
+              </a>
+            )}
+            
+          </strong>
+
+          <span className="right">
+            {formatMonthYear(p.projectDate)}
+          </span>
+        </div>
+
+        <ul>
+          {p.description
+            ?.split("\n")
+            .filter(Boolean)
+            .map((d, idx) => (
+              <li key={idx}>
+                {d.replace("•", "").trim()}
+              </li>
+            ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+)}
+
+      {/* SKILLS */}
+      {skills.length > 0 && (
+        <section>
+          <h2>Technical Skills</h2>
+          {skills.map((cat, i) => (
+            <p key={i}>
+              <strong>{cat.title}:</strong>{" "}
+              {cat.skills.map((s) => s.name).join(", ")}
+            </p>
+          ))}
+        </section>
+      )}
+
+      {/* CERTIFICATIONS */}
+      {certifications.length > 0 && (
+        <section>
+          <h2>Certifications</h2>
+          <ul>
+            {certifications.map((c, i) => (
+              <li key={i}>
+                {c.name} – {c.organization} {c.year}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      <DownloadButton />
+    </div>
+  );
+};
+
+export default ResumePreview;

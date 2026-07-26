@@ -1,0 +1,147 @@
+/* ==========================================================
+   Dashboard Navbar
+========================================================== */
+
+.dashboard-navbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 40px;
+
+    background:#ffffff;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+
+/* ==========================================================
+   Logo
+========================================================== */
+
+.dashboard-logo{
+
+    text-decoration:none;
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:#2563eb;
+
+}
+
+
+/* ==========================================================
+   Navigation
+========================================================== */
+
+.dashboard-links{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+.dashboard-links a{
+
+    text-decoration:none;
+
+    color:#374151;
+
+    font-weight:500;
+
+}
+
+.dashboard-links a.active{
+
+    color:#2563eb;
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================================
+   User Section
+========================================================== */
+
+.dashboard-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.user-details{
+
+    display:flex;
+
+    flex-direction:column;
+
+    text-align:right;
+
+}
+
+.user-name{
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.user-email{
+
+    font-size:13px;
+
+    color:#6b7280;
+
+}
+
+
+/* ==========================================================
+   Responsive
+========================================================== */
+
+@media(max-width:900px){
+
+    .dashboard-navbar{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        padding:20px;
+
+    }
+
+    .dashboard-links{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .dashboard-user{
+
+        flex-direction:column;
+
+    }
+
+}

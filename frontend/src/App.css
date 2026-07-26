@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap");
 /* ===== HERO BASE ===== */
 .hero {
   min-height: 100vh;
@@ -787,20 +788,71 @@ input:focus {
   border-bottom: 1px solid #000;
 }
 /* -------- src/styles/builder.css ------- */
-.builder-layout {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
+.resume-builder-page{
+    width:100%;
 }
 
-.form-panel {
-  flex: 1;
+/* ========================= */
+
+.Header-ResumeBuilder{
+    width:100%;
+    height:80px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#fff;
+
+    border-bottom:2px solid #e5e7eb;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+    margin-bottom:25px;
 }
 
-.preview-panel {
-  width: 230mm; /* A4 width + padding */
-  position: sticky;
-  top: 20px;
+.Header-ResumeBuilder h1{
+
+    margin:0;
+
+    font-size:50px;
+
+    font-weight:700;
+
+    color:#1f2937;
+
+    font-family:"Times New Roman", Times, serif;
+
+    letter-spacing:.5px;
+}
+
+/* ========================= */
+
+.builder-layout{
+
+    display:flex;
+
+    gap:24px;
+
+    align-items:flex-start;
+
+    width:100%;
+}
+
+.form-panel{
+
+    flex:1;
+
+    min-width:0;
+}
+
+.preview-panel{
+
+    width:230mm;
+
+    position:sticky;
+
+    top:120px;
 }
 /* -------- src/Components/ResumePreview.css ------- */
 .resume-header {
@@ -878,6 +930,87 @@ ul {
 
 li {
   margin-bottom: 3px;
+}
+.resume-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 14px 24px;
+
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: #222;
+}
+
+.contact-icon {
+    font-size: 14px;
+    color: #000;
+}
+
+.contact-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.auto-save-status{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:15px;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    background:#fff;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+    font-size:14px;
+}
+
+.saving{
+    color:#f59e0b;
+    font-weight:600;
+}
+
+.saved{
+    color:#16a34a;
+    font-weight:600;
+}
+
+.last-saved{
+    color:#6b7280;
+    font-size:13px;
+
+}
+.project-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.external-link {
+    font-size: 12px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.external-link:hover {
+    color: #797c82;
 }
 /* -------- src/styles/resume.css ------- */
 .resume-page {
@@ -976,4 +1109,669 @@ li {
 
 .external-link:hover {
   color: #000;
+}
+/* ============================= */
+/* Header Bar */
+/* ============================= */
+
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Times New Roman", Times, serif;
+  border-bottom: 2px solid #000000;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #000000;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 17px;
+  font-family: "Times New Roman", Times, serif;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #000000;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: #444444;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.cta-btn {
+  padding: 10px 22px;
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .nav {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+/* ============================================================
+   RÉSUMÉ. — Landing page styles
+   Theme: black & white, letterhead / typed-document aesthetic
+   Font:  Times New Roman throughout (per brief)
+   ============================================================ */
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --ink: #1a1a1a;
+  --grey-1: #4d4d4d;
+  --grey-2: #8c8c8c;
+  --grey-3: #d9d9d9;
+  --grey-4: #f2f2f0;
+
+  --font: "Times New Roman", Times, "Liberation Serif", serif;
+
+  --max-width: 1120px;
+  --gap: 24px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font);
+}
+
+body { -webkit-font-smoothing: antialiased; }
+
+img, svg { display: block; max-width: 100%; }
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--grey-1);
+  margin: 0 0 10px;
+}
+
+/* ---------------- Buttons ---------------- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  padding: 11px 22px;
+  border: 1px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover { background: var(--black); color: var(--white); }
+
+.btn-solid {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-solid:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.btn-large {
+  padding: 15px 32px;
+  font-size: 15px;
+}
+
+.btn-text {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.btn-text:hover { color: var(--grey-1); }
+
+/* ============================================================
+   HEADER — letterhead
+   ============================================================ */
+
+.site-header {
+  border-bottom: 1px solid var(--black);
+}
+
+.letterhead {
+  border-top: 3px double var(--black);
+  border-bottom: 1px solid var(--black);
+  text-align: center;
+  padding: 22px 0 18px;
+}
+
+.letterhead .wordmark {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: 0.28em;
+  font-weight: normal;
+}
+
+.letterhead .tagline {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--grey-1);
+  letter-spacing: 0.03em;
+}
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-links li a:hover {
+  border-bottom: 1px solid var(--black);
+}
+
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.user-greeting {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--grey-1);
+}
+
+.nav-toggle {
+  display: none;
+  border: 1px solid var(--black);
+  background: var(--white);
+  width: 38px;
+  height: 34px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: var(--black);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  padding: 84px 0 96px;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.hero-heading {
+  font-size: 56px;
+  line-height: 1.08;
+  margin: 0 0 22px;
+  font-weight: normal;
+}
+
+.hero-heading em {
+  font-style: italic;
+}
+
+.hero-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grey-1);
+  max-width: 460px;
+  margin: 0 0 32px;
+}
+
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.hero-cta-row .signin-hint {
+  font-size: 14px;
+  color: var(--grey-1);
+}
+
+/* --- Mock résumé document / signature element --- */
+
+.doc-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.doc-card {
+  width: 100%;
+  max-width: 360px;
+  background: var(--white);
+  border: 1px solid var(--black);
+  box-shadow: 10px 10px 0 var(--grey-4), 10px 10px 0 1px var(--black);
+  padding: 34px 30px;
+  transform: rotate(-2.2deg);
+}
+
+.doc-name {
+  font-size: 19px;
+  letter-spacing: 0.05em;
+  margin: 0 0 4px;
+}
+
+.doc-role {
+  font-size: 12px;
+  color: var(--grey-1);
+  letter-spacing: 0.05em;
+  margin: 0 0 18px;
+}
+
+.doc-rule {
+  border: none;
+  border-top: 1px solid var(--black);
+  margin: 0 0 16px;
+}
+
+.doc-section-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grey-1);
+  margin: 0 0 10px;
+}
+
+.doc-line {
+  height: 7px;
+  background: var(--grey-3);
+  margin-bottom: 8px;
+}
+
+.doc-line.short { width: 60%; }
+.doc-line.med { width: 82%; }
+
+.doc-block { margin-bottom: 20px; }
+.doc-block:last-child { margin-bottom: 0; }
+
+.stamp {
+  position: absolute;
+  bottom: -18px;
+  right: 6px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 2px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(12deg);
+  background: var(--white);
+}
+
+.stamp-inner {
+  border-radius: 50%;
+  border: 1px solid var(--black);
+  width: 78px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  padding: 6px;
+}
+
+/* ============================================================
+   FEATURES — resume-section styled columns
+   ============================================================ */
+
+.section {
+  padding: 76px 0;
+  border-top: 1px solid var(--grey-3);
+}
+
+.section-heading {
+  font-size: 30px;
+  font-weight: normal;
+  margin: 0 0 48px;
+  max-width: 560px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.feature-col-label {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--black);
+}
+
+.feature-col p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--grey-1);
+  margin: 0;
+}
+
+/* ============================================================
+   TEMPLATE SWATCHES
+   ============================================================ */
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.swatch {
+  border: 1px solid var(--black);
+  padding: 18px 16px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.swatch:hover { background: var(--black); }
+
+.swatch-title {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  margin: 0 0 8px;
+}
+
+.swatch-bar { height: 5px; background: var(--grey-3); }
+.swatch:hover .swatch-bar { background: var(--grey-1); }
+.swatch-bar.w-70 { width: 70%; }
+.swatch-bar.w-90 { width: 90%; }
+.swatch-bar.w-50 { width: 50%; }
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+
+.cta-band {
+  background: var(--black);
+  color: var(--white);
+  padding: 84px 0;
+  text-align: center;
+}
+
+.cta-band .eyebrow { color: var(--grey-3); }
+
+.cta-band h2 {
+  font-size: 34px;
+  font-weight: normal;
+  margin: 0 0 28px;
+}
+
+.cta-band .btn {
+  border-color: var(--white);
+  background: var(--black);
+  color: var(--white);
+}
+
+.cta-band .btn:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer {
+  border-top: 1px solid var(--black);
+  padding: 34px 0;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-mark {
+  font-size: 15px;
+  letter-spacing: 0.18em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  color: var(--grey-1);
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: var(--grey-2);
+}
+
+/* ============================================================
+   AUTH MODAL
+   ============================================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+
+.modal-box {
+  background: var(--white);
+  border: 1px solid var(--black);
+  width: 100%;
+  max-width: 380px;
+  padding: 34px 32px 28px;
+  position: relative;
+}
+
+.modal-box::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid var(--grey-3);
+  pointer-events: none;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--black);
+}
+
+.modal-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grey-1);
+  margin: 0 0 6px;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0 0 22px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--grey-1);
+  margin-bottom: 6px;
+}
+
+.field input {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 15px;
+  padding: 10px 10px;
+  border: none;
+  border-bottom: 1px solid var(--black);
+  background: transparent;
+  color: var(--ink);
+}
+
+.field input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--black);
+}
+
+.modal-submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+}
+
+.modal-switch {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--grey-1);
+  text-align: center;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 860px) {
+  .hero .container { grid-template-columns: 1fr; }
+  .hero-heading { font-size: 42px; }
+  .feature-grid { grid-template-columns: 1fr; gap: 32px; }
+  .swatch-grid { grid-template-columns: repeat(2, 1fr); }
+  .doc-card { max-width: 320px; }
+}
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .letterhead .wordmark { font-size: 24px; letter-spacing: 0.18em; }
+  .footer-row { flex-direction: column; align-items: flex-start; }
 }
