@@ -4,7 +4,7 @@ import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import Button from "/src/user/Components/common/Button";
 import Input from "/src/user/Components/common/Input";
 import Alert from "/src/user/Components/common/Alert";
-import Loader from "/src/user/components/common/Loader";
+import Loader from "/src/user/Components/common/Loader";
 
 import "./Auth.css";
 
