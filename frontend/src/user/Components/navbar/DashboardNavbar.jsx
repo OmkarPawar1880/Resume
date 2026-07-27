@@ -2,8 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 
 import "./DashboardNavbar.css";
 
-import Button from "/src/user/Components/common/Button";
-import useAuth from "/src/user/hooks/useAuth";
+import Button from "/Src/User/Components/Common/Button";
+import useAuth from "/Src/User/Hooks/useAuth";
 
 // ==========================================================
 // Dashboard Navigation Bar

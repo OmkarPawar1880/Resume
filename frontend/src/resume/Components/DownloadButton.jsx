@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { generateResume } from "../services/resumeApi";
+import { generateResume } from "../Services/resumeApi";
 
 
 const DownloadButton = ({ resumeData }) => {

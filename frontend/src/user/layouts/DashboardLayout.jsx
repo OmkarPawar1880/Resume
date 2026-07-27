@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
-import DashboardNavbar from "../components/navbar/DashboardNavbar";
-import Footer from "../components/footer/Footer";
+import DashboardNavbar from "../Components/Navbar/DashboardNavbar";
+import Footer from "../Components/Footer/Footer";
 
 // ==========================================================
 // Dashboard Layout

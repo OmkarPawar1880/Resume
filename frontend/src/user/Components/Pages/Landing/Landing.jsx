@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Button from "/src/user/components/common/Button";
-import Card from "/src/user/components/common/Card";
+import Button from "/Src/User/Components/Common/Button";
+import Card from "/Src/User/Components/Common/Card";
 
 import "./Landing.css";
 

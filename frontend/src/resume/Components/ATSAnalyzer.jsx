@@ -5,7 +5,7 @@ import ATSScoreMeter from "./ATSScoreMeter";
 import KeywordMatchChart from "./KeywordMatchChart";
 import SectionScoreCards from "./SectionScoreCards";
 import SuggestionsList from "./SuggestionsList";
-import { analyzeATS } from "../services/atsApi";
+import { analyzeATS } from "../Services/atsApi";
 
 const ATSAnalyzer = () => {
   const [resume, setResume] = useState(null);

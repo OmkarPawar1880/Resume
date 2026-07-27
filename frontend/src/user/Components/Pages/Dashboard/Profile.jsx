@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import Button from "/src/user/Components/common/Button";
-import Input from "/src/user/Components/common/Input";
-import Alert from "/src/user/Components/common/Alert";
-import Loader from "/src/user/components/common/Loader";
+import Button from "/Src/User/Components/Common/Button";
+import Input from "/Src/User/Components/Common/Input";
+import Alert from "/Src/User/Components/Common/Alert";
+import Loader from "/Src/User/components/Common/Loader";
 
-import useAuth from "/src/user/hooks/useAuth";
+import useAuth from "/Src/User/Hooks/useAuth";
 
 import "./Dashboard.css";
 

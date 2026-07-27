@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useResume } from "../context/useResume";
+import { useResume } from "../Context/useResume";
 
 const createEmptyEducation = () => ({
   institution: "",

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import Button from "/src/user/Components/common/Button";
-import Alert from "/src/user/Components/common/Alert";
+import Button from "/Src/User/Components/Common/Button";
+import Alert from "/Src/User/Components/Common/Alert";
 
 import "./Dashboard.css";
 

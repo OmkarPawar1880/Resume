@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Button from "/src/user/Components/common/Button";
-import Alert from "/src/user/Components/common/Alert";
-import Modal from "/src/user/Components/common/Modal";
+import Button from "/Src/User/Components/Common/Button";
+import Alert from "/Src/User/Components/Common/Alert";
+import Modal from "/Src/User/Components/Common/Modal";
 
-import useAuth from "/src/user/hooks/useAuth";
+import useAuth from "/Src/User/Hooks/useAuth";
 
 import "./Dashboard.css";
 

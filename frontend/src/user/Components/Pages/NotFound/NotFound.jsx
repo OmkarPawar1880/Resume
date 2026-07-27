@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import Button from "/src/user/Components/common/Button";
+import Button from "/Src/User/Components/Common/Button";
 
 import "./NotFound.css";
 

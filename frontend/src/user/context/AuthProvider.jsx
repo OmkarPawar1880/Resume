@@ -7,7 +7,7 @@ import {
     loginUser,
     logoutUser,
     getCurrentUser
-} from "../api/authApi";
+} from "../Api/authApi";
 
 // ==========================================================
 // Auth Provider

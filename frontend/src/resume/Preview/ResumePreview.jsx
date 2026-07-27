@@ -1,4 +1,4 @@
-import { useResume } from "../context/useResume";
+import { useResume } from "../Context/useResume";
 import DownloadButton from "../Components/DownloadButton";
 import {
   FaPhoneAlt,

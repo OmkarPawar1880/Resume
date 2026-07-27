@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { generateResume } from "../services/resumeApi";
-import { useResume } from "../context/useResume";
-import { validateResume } from "../utils/validateResume";
+import { generateResume } from "../Services/resumeApi";
+import { useResume } from "../Context/useResume";
+import { validateResume } from "../Utils/validateResume";
 
 const ResumeActions = ({ resumeData }) => {
   const { resume, saveResumeTo } = useResume();

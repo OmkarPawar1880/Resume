@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-import Button from "/src/user/Components/common/Button";
-import Card from "/src/user/Components/common/Card";
+import Button from "/Src/User/Components/Common/Button";
+import Card from "/Src/User/Components/Common/Card";
 
-import useAuth from "/src/user/hooks/useAuth";
-import Header from "../../../../shared/Components/Header";
+import useAuth from "/Src/User/Hooks/useAuth";
+import Header from "../../../../Shared/Components/Header";
 
 import "./Dashboard.css";
 

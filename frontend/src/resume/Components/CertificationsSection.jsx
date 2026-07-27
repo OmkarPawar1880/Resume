@@ -1,5 +1,5 @@
 import React from "react";
-import { useResume } from "../context/useResume";
+import { useResume } from "../Context/useResume";
 
 const createEmptyCertification = () => ({
   name: "",

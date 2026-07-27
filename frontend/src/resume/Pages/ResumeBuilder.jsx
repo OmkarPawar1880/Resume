@@ -8,7 +8,7 @@ import SubmitResumeButton from "../Components/SubmitResumeButton";
 import ResumePreview from "../Preview/ResumePreview";
 import DownloadButton from "../Components/DownloadButton";
 
-import Header from "../../shared/Components/Header";
+import Header from "../../Shared/Components/Header";
 
 
 

@@ -1,4 +1,4 @@
-import { isRequired, isEmail } from "./validators";
+import { isRequired, isEmail } from "./Validators";
 
 /* =========================
    PERSONAL INFO VALIDATION
