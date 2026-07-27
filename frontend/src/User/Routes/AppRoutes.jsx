@@ -14,7 +14,7 @@ import Profile from "/src/User/Components/Pages/Dashboard/Profile";
 import Settings from "/src/User/Components/Pages/Dashboard/Settings";
 import Account from "/src/User/Components/Pages/Dashboard/Account";
 
-import ResumeBuilder from "/Src/Resume/Pages/ResumeBuilder";
+import ResumeBuilder from "/src/Resume/Pages/ResumeBuilder";
 import NotFound from "/src/User/Components/Pages/NotFound/NotFound";
 
 const AppRoutes = () => {

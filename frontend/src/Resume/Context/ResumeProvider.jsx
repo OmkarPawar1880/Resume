@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ResumeContext } from "./ResumeContext";
 import { initialResume } from "../Schema/resume";
-import useAuth from "/Src/User/Hooks/useAuth";
+import useAuth from "/src/User/Hooks/useAuth";
 
 const ResumeProvider = ({ children }) => {
 
