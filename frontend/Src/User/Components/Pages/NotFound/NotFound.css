@@ -1,0 +1,73 @@
+/* ==========================================================
+   Not Found Page
+========================================================== */
+
+.not-found-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    background:#f8fafc;
+
+}
+
+.not-found-container{
+
+    text-align:center;
+
+    max-width:600px;
+
+}
+
+.not-found-container h1{
+
+    font-size:8rem;
+
+    color:#2563eb;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+
+}
+
+.not-found-container h2{
+
+    font-size:2rem;
+
+    margin-bottom:20px;
+
+    color:#111827;
+
+}
+
+.not-found-container p{
+
+    font-size:1.1rem;
+
+    color:#6b7280;
+
+    line-height:1.7;
+
+    margin-bottom:40px;
+
+}
+
+.not-found-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
