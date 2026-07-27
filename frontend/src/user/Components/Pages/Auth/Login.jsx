@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import Input from "/Src/User/Components/Common/Input";
-import Button from "/Src/User/Components/Common/Button";
-import Loader from "/Src/User/Components/Common/Loader";
-import Alert from "/Src/User/Components/Common/Alert";
+import Input from "/src/User/Components/Common/Input";
+import Button from "/src/User/Components/Common/Button";
+import Loader from "/src/User/Components/Common/Loader";
+import Alert from "/src/User/Components/Common/Alert";
 
-import useAuth from "/src/user/hooks/useAuth";
+import useAuth from "/src/User/Hooks/useAuth";
 
 import "./Auth.css";
 

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import "./PublicNavbar.css";
 
-import Button from "/Src/User/Components/Common/Button";
+import Button from "/src/User/Components/Common/Button";
 
 // ==========================================================
 // Public Navigation Bar

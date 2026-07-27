@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "/Src/User/Hooks/useAuth";
+import useAuth from "/src/User/Hooks/useAuth";
 
 const ProfileMenu = () => {
 

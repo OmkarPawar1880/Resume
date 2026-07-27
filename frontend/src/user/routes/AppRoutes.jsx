@@ -3,19 +3,19 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 
-import Landing from "/Src/user/Components/Pages/Landing/Landing";
-import Login from "/Src/User/Components/Pages/Auth/Login";
-import Register from "/Src/User/Components/Pages/Auth/Register";
-import ForgotPassword from "/Src/User/Components/Pages/Auth/ForgotPassword";
-import ResetPassword from "/Src/User/Components/Pages/Auth/ResetPassword";
+import Landing from "/src/User/Components/Pages/Landing/Landing";
+import Login from "/src/User/Components/Pages/Auth/Login";
+import Register from "/src/User/Components/Pages/Auth/Register";
+import ForgotPassword from "/src/User/Components/Pages/Auth/ForgotPassword";
+import ResetPassword from "/src/User/Components/Pages/Auth/ResetPassword";
 
-import Dashboard from "/Src/User/Components/Pages/Dashboard/Dashboard";
-import Profile from "/Src/User/Components/Pages/Dashboard/Profile";
-import Settings from "/Src/User/Components/Pages/Dashboard/Settings";
-import Account from "/Src/User/Components/Pages/Dashboard/Account";
+import Dashboard from "/src/User/Components/Pages/Dashboard/Dashboard";
+import Profile from "/src/User/Components/Pages/Dashboard/Profile";
+import Settings from "/src/User/Components/Pages/Dashboard/Settings";
+import Account from "/src/User/Components/Pages/Dashboard/Account";
 
 import ResumeBuilder from "/Src/Resume/Pages/ResumeBuilder";
-import NotFound from "/Src/User/Components/Pages/NotFound/NotFound";
+import NotFound from "/src/User/Components/Pages/NotFound/NotFound";
 
 const AppRoutes = () => {
     // Replace this with your auth state
