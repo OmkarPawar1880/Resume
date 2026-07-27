@@ -7,6 +7,10 @@ import Button from "/src/User/Components/Common/Button";
 import Card from "/src/User/Components/Common/Card";
 
 import "./Landing.css";
+import modernTemplate from "../../../../assets/Templates/Modern-Template.png";
+import classicTemplate from "../../../../assets/Templates/Classic-Template.png";
+import creativeTemplate from "../../../../assets/Templates/Creative-Template.png";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,19 +56,19 @@ const templateList = [
         id: 1,
         name: "Modern",
         description: "Clean and ATS-friendly professional resume.",
-        image: "/src/assets/Templates/Modern Template - Copy.png",
+        image: modernTemplate,
     },
     {
         id: 2,
         name: "Classic",
         description: "Traditional layout suitable for all industries.",
-        image: "/src/assets/Templates/Classic Resume Template - Copy.png",
+        image: classicTemplate,
     },
     {
         id: 3,
         name: "Creative",
         description: "Stylish design for designers and creative roles.",
-        image: "/src/assets/Templates/Creative Resume Template - Copy.png",
+        image: creativeTemplate,
     },
 ];
 
