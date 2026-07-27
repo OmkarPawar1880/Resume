@@ -1,6 +1,6 @@
 import "./App.css";
 
-import AppRoutes from "./User/Routes/AppRoutes";
+import AppRoutes from "/Src/User/Routes/AppRoutes";
 
 
 
