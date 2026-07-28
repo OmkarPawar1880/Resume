@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { generateResume } from "../Services/resumeApi";
+import { API_URL } from "/src/config.js"; // adjust path depth (../ or ../../) based on file location
 
 
 const DownloadButton = ({ resumeData }) => {
@@ -17,7 +18,7 @@ const DownloadButton = ({ resumeData }) => {
         throw new Error("Invalid response from server");
       }
 
-      window.open(`https://createresume.onrender.com${res.downloadUrl}`, "_blank");
+      window.open(`${API_URL}${res.downloadUrl}`, "_blank");
     } catch (err) {
       console.error(err);
       setError("Failed to generate resume. Please try again.");

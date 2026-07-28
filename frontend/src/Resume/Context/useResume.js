@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ResumeContext } from "./ResumeContext";
+import { API_URL } from "/src/config.js"; // adjust path depth (../ or ../../) based on file location
 
 export const useResume = () => {
   const context = useContext(ResumeContext);
@@ -88,7 +89,7 @@ const removeArrayItem = (section, index) => {
 };
 
 const saveResumeTo = async () => {
-  const res = await fetch("https://createresume.onrender.com/api/resume", {
+  const res = await fetch("${API_URL}/api/resume", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -105,7 +106,7 @@ const saveResumeTo = async () => {
 };
 
 const savePartialResumeTo = async (partialData) => {
-  const res = await fetch("https://createresume.onrender.com/api/resume/partial", {
+  const res = await fetch("${API_URL}/api/resume/partial", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

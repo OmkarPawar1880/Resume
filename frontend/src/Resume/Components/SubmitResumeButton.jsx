@@ -2,6 +2,7 @@ import { useState } from "react";
 import { generateResume } from "../Services/resumeApi";
 import { useResume } from "../Context/useResume";
 import { validateResume } from "../Utils/validateResume";
+import { API_URL } from "/src/config.js"; // adjust path depth (../ or ../../) based on file location
 
 const ResumeActions = ({ resumeData }) => {
   const { resume, saveResumeTo } = useResume();
@@ -25,7 +26,7 @@ const ResumeActions = ({ resumeData }) => {
         throw new Error("Invalid response from server");
       }
 
-      window.open(`https://createresume.onrender.com${res.downloadUrl}`, "_blank");
+      window.open(`${API_URL}${res.downloadUrl}`, "_blank");
     } catch (err) {
       console.error(err.message);
       setError({ api: "Failed to generate resume. Please try again." });

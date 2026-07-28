@@ -44,7 +44,7 @@ app = FastAPI(
 # CORS Configuration
 # ==========================================================
 origins = [
-    "https://createresume1880.vercel.app//" #VERCEL
+    "https://createresume1880.vercel.app", #VERCEL
     "http://localhost:5173",  # React (Vite)
     "http://127.0.0.1:5173",
 ]

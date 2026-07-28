@@ -1,6 +1,26 @@
 // src/services/resumeApi.js
+import { API_URL } from "/src/config.js"; // adjust path depth (../ or ../../) based on file location
+const ATS_ENDPOINT = "${API_URL}/api/ats/analyze";
 
-const API_BASE_URL = "https://createresume.onrender.com/api/resume";
+
+export async function analyzeATS(resumeFile, jobDescription) {
+  const formData = new FormData();
+  formData.append("resume", resumeFile);
+  formData.append("job_description", jobDescription);
+
+  const response = await fetch(API_URL, {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) {
+    throw new Error("ATS analysis failed");
+  }
+
+  return response.json();
+}
+
+const API_BASE_URL = "${API_URL}/api/resume";
 
 /**
  * Generate resume PDF (JSON → LaTeX → PDF)
