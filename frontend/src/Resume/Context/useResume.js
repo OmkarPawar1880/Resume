@@ -88,7 +88,7 @@ const removeArrayItem = (section, index) => {
 };
 
 const saveResumeTo = async () => {
-  const res = await fetch("http://localhost:8000/api/resume", {
+  const res = await fetch("https://createresume.onrender.com/api/resume", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -105,7 +105,7 @@ const saveResumeTo = async () => {
 };
 
 const savePartialResumeTo = async (partialData) => {
-  const res = await fetch("http://localhost:8000/api/resume/partial", {
+  const res = await fetch("https://createresume.onrender.com/api/resume/partial", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

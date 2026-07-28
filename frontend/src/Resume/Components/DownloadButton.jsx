@@ -17,7 +17,7 @@ const DownloadButton = ({ resumeData }) => {
         throw new Error("Invalid response from server");
       }
 
-      window.open(`http://localhost:8000${res.downloadUrl}`, "_blank");
+      window.open(`https://createresume.onrender.com${res.downloadUrl}`, "_blank");
     } catch (err) {
       console.error(err);
       setError("Failed to generate resume. Please try again.");

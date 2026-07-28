@@ -1,6 +1,6 @@
 // src/services/resumeApi.js
 
-const API_BASE_URL = "http://localhost:8000/api/resume";
+const API_BASE_URL = "https://createresume.onrender.com/api/resume";
 
 /**
  * Generate resume PDF (JSON → LaTeX → PDF)

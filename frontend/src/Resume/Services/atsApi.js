@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000/api/ats/analyze";
+const API_URL = "https://createresume.onrender.com/api/ats/analyze";
 
 export async function analyzeATS(resumeFile, jobDescription) {
   const formData = new FormData();
