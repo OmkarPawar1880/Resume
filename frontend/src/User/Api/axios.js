@@ -1,16 +1,14 @@
 import axios from "axios";
+import { API_URL } from "./config"; 
 
 // ==========================================================
 // Axios Instance
 // ==========================================================
 const api = axios.create({
-    baseURL: "http://127.0.0.1:8000/api",
-    headers: {
-        "Content-Type": "application/json",
-    },
-    timeout: 10000,
+  baseURL: `${API_URL}/api`,
+  headers: { "Content-Type": "application/json" },
+  timeout: 10000
 });
-
 // ==========================================================
 // Request Interceptor
 // Automatically attach JWT Access Token
